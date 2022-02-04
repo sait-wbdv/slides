@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Introduction to Javascript</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/theme/white.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/markdown/markdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.js"></script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown>
+          <textarea data-template>
+            ## Javascript
+            #### Troubleshooting Errors
+            See: <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_went_wrong" target="_blank">What went wrong? Troubleshooting JavaScript</a>
+
+            ---
+
+            ## Types of Errors 
+            - Syntax errors
+            - Run-time errors
+            - Logic errors
+
+            ---
+
+            ## Diagnosing Errors
+            #### Something not working right?
+            1. Check the console
+            2. Find the file and line number of the error
+            3. What's the error?
+
+            ---
+
+            #### Problem: Variable does not exist
+            Chrome
+            ![Variable Undefined in Chrome](../../assets/images/errors/var-undefined-chrome.png)
+            Firefox
+            ![Variable Undefined in Chrome](../../assets/images/errors/var-undefined-firefox.png)
+
+            #### Solution
+            Declare a variable with `const` or `let` before use.
+            ---
+
+            #### Problem: `const` Variable not assigned a value
+
+            Chrome
+            ![Variable Undefined in Chrome](../../assets/images/errors/const-unassigned-chrome.png)
+            Firefox
+            ![Variable Undefined in Chrome](../../assets/images/errors/const-unassigned-firefox.png)
+
+            ##### Solution
+            Assign a value when using `const`, OR declare the variable with `let` instead
+
+            ---
+
+            #### Problem: cannot re-assign a `const` variable
+            Chrome
+            ![Variable Undefined in Chrome](../../assets/images/errors/const-reassignment-chrome.png)
+            Firefox
+            ![Variable Undefined in Chrome](../../assets/images/errors/const-reassignment-firefox.png)
+
+            #### Solution
+            Declare the variable with `let` instead
+            
+            ---
+
+            ## Run-time errors
+
+            ---
+
+            ## Logic Errors
+
+           </textarea>
+        </section>
+      </div>
+    </div>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        plugins: [ RevealMarkdown ]
+      });
+    </script>
+  </body>
+</html>

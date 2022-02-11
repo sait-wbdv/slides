@@ -211,15 +211,16 @@
             Returns its right-hand side operand when its left-hand side operand is any falsy value.
 
             ```js
-            o1 = false || true       // returns true
-            o2 = true  || false      // returns true
-            o3 = 'Cat' || 'Dog'      // returns "Cat"
-            o4 = false || 'Cat'      // returns "Cat"
-            o5 = ''    || 'Dog'      // returns "Dog"
-            o6 = 'Cat' || false      // returns "Cat"
-            o7 = ''    || false      // returns false
-            o8 = false || ''         // returns ""
-            o9 = false || varObject // object returns varObject
+            o1  = false || true       // returns true
+            o2  = true  || false      // returns true
+            o3  = 'Cat' || 'Dog'      // returns "Cat"
+            o4  = false || 'Cat'      // returns "Cat"
+            o5  = ''    || 'Dog'      // returns "Dog"
+            o6  = 'Cat' || false      // returns "Cat"
+            o7  = ''    || false      // returns false
+            o8  = false || ''         // returns ""
+            o9  = false || varObject  // object returns varObject
+            010 = 0     || "Cat"      // returns "Cat"
             ```
             - [MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR#examples)
 

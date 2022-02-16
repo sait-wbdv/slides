@@ -123,6 +123,15 @@
             - Any data returned from a Promise is only available inside the `async` function.
             - Use `try...catch` blocks to handle rejected Promises (covered tomorrow).
 
+            ---
+
+            ### Things to remember with `fetch()`
+            The `fetch` API takes specific steps when requesting data:
+            1. `fetch(url)` will make an asynchronous request to a server for data;
+            2. That response will return with JSON;
+            3. The JSON is then converted to regular Javascript data using `response.json()`;
+            4. The resulting `data` can then be used normally within the `async` function.
+
             </textarea>
         </section>
       </div>

@@ -22,9 +22,9 @@
       <div class="slides">
         <section data-markdown>
           <textarea data-template>
-            ## Asynchronous Javascript
-            ### Retrieving JSON data with `fetch()` 
-
+            ## Asynchronous JS
+            ### Retrieving data with `fetch()` 
+            Javascript waits for no one
             ---
 
             ### Problem
@@ -40,7 +40,7 @@
               <dt>Callback</dt>
               <dd>A function passed to another function as a value, to be invoked later.</dd>
               <dt>Promise</dt>
-              <dd>New in ES6: used for asynchronous code instead of callbacks. Can only have two outcomes: success or failure.</dd>
+              <dd>New in ES6: used for asynchronous code instead of callbacks. Can only have one of two outcomes: success or failure.</dd>
               <dt><code>async</code>/<code>await</code></dt>
               <dd>New in ES7: provides a cleaner syntax for Promises but does the same thing.</dd>
             </dl>
@@ -114,6 +114,14 @@
             - Promises act as a "reminder" for your code to process a response once it arrives.
             - Old Promise syntax uses `.then()` and `.catch()`. It works but it's clunky.
             - Modern `async`/`await` syntax does the same thing as `.then()` and `.catch()` but with more intuitive code.
+
+            ---
+
+            ### Things to remember with `async`/`await`
+            - `await` only works inside a function defined with the `async` keyword.
+            - `await` must be added in front of any function that returns a Promise.
+            - Any data returned from a Promise is only available inside the `async` function.
+            - Use `try...catch` blocks to handle rejected Promises (covered tomorrow).
 
             </textarea>
         </section>

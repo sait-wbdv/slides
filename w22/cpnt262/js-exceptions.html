@@ -55,6 +55,20 @@
               <dt><code>throw</code></dt>
               <dd>A statement that manually generates exceptions.</dd>
             </dl>
+
+            ---
+
+            ### Exceptions with Promises
+            - Promises can either succeed (be resolved) or fail (be rejected).
+            - Rejected Promises will throw an exception that can be caught with a `catch` clause.
+            
+            ---
+            
+            ### Considerations with `fetch()`
+            - `fetch()` _only_ rejects a Promise (i.e. throws an exception) if there's a network error (i.e. server not found).
+            - An exception is _not_ thrown when it encounters a `404 Not Found`, or similar status error.
+            - `fetch()` returns a `Response.ok` property that is `true` if the status code is 200-299. `false`, otherwise.
+
            </textarea>
         </section>
       </div>

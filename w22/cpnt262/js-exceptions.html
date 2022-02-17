@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Troubleshooting Errors</title>
+    <title>Handling Exceptions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/theme/white.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/markdown/markdown.min.js"></script>
@@ -69,6 +69,56 @@
             - An exception is _not_ thrown when it encounters a `404 Not Found`, or similar status error.
             - `fetch()` returns a `Response.ok` property that is `true` if the status code is 200-299. `false`, otherwise.
 
+            ---
+
+            ### Example: `fetch()` with no error Handling
+
+            ```js
+            const fetchData = async () => {
+              const response = await fetch('url-to-somewhere');
+              const data = await response.json();
+
+              console.log(data);
+            }
+            ```
+
+            ---
+
+            ### Example: `fetch()` with `try` / `catch`
+
+            ```js
+            const fetchData = async () => {
+              try {
+                const response = await fetch('url-to-somewhere');
+                const data = await response.json();
+        
+                console.log(data);
+                
+              } catch (error) {
+                  console.error(error);
+              }
+            }
+            ```
+
+            ---
+
+            ### Example: `fetch()` with `try` / `catch` and `throw`
+
+            ```js
+            const fetchData = async () => {
+              try {
+                const response = await fetch('url-to-somewhere');
+                if (!response.ok) { 
+                    throw new Error(response.statusText);
+                }
+                const data = await response.json();
+        
+                console.log(data);
+              } catch (error) {
+                  console.error(error);
+              }
+            }
+            ```
            </textarea>
         </section>
       </div>

@@ -71,7 +71,9 @@
             ### API Keys
             - Is an **Authorization** scheme that does _not_ **Authenticate** the user.
             - Identify the application making the request and can be revoked.
-            - Are considered public and are inherently insecure.
+            - Are considered public and are inherently insecure because they are often shown in the URL as a Query Parameter (and therefore can't be encrypted).
+
+            <p class="code">example.com/api/invoices?<strong>token=sdafnDuTD83</strong></p>
 
 
             ---

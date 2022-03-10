@@ -190,10 +190,12 @@
 
             ## Styling SVGs
             SVGs are defined by their own specification that's separate from HTML.
-            - Instead of `border` use `stroke`.
+            - Instead of `border-color` use `stroke`.
+                - `border-width` -> `stroke-width`
+                - `border-style` -> `stroke-dasharray`
             - Instead of `background-color` use `fill`.
             - Most other styles will work on inline SVGs but some don't. You mileage may vary.
-            - Other SVG-specific styles exist that you can use in CSS.
+            - Other SVG-specific styles exist that you can use in CSS such as `stroke-linecap` and `stroke-miterlimit`.
 
             ---
 

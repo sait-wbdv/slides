@@ -79,7 +79,7 @@
             ### 2. `background-image` Property
             HTML:
             ```html
-            <img src="no-bugs.svg" alt="SVG as img">
+            <div class="image"></div>
             ```
 
             CSS:
@@ -185,6 +185,16 @@
             - `width` and `height` attributes will be removed by default (this is good).
             - A lower precision will result in a smaller file size but very low values might affect the detail of your designs.
             - See [Understanding and Manually Improving SVG Optimization](https://css-tricks.com/understanding-and-manually-improving-svg-optimization/) for more information than you probably need.
+
+            ---
+
+            ## Styling SVGs
+            - Instead of `border-color` use `stroke`.
+                - `border-width` -> `stroke-width`
+                - `border-style` -> `stroke-dasharray`
+            - Instead of `background-color` use `fill`.
+            - Most other styles will work on inline SVGs but some don't. You mileage may vary.
+            - Other SVG-specific styles exist that you can use in CSS such as `stroke-linecap` and `stroke-miterlimit`.
 
             ---
 

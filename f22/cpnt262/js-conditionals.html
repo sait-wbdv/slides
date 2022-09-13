@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Introduction to Conditional Statements</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/theme/white.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/markdown/markdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.js"></script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown>
+          <textarea data-template>
+            ## Javascript
+            #### Conditional Statements
+            - <a href="https://developer.mozilla.org/en-US/docs/Glossary/Boolean" target="_blank">Boolean values</a>
+            - <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals" target="_blank">Making decisions in your code - conditionals</a>
+            - <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#comparison_operators" target="_blank">Comparison operators</a>
+
+            ---
+
+            <dl>
+              <dt>Boolean values</dt>
+              <dd><code>true</code> or <code>false</code> (there is no maybe)</dd>
+              <dt>Truthy</dt>
+              <dd>A truthy value is a value that is considered <code>true</code> when converted to a Boolean value.</dd>
+              <dt>Falsy</dt>
+              <dd>A falsy (sometimes written falsey) value is a value that is considered <code>false</code> when converted to a Boolean value.</dd>
+            </dl>
+
+            ---
+
+            <dl>
+              <dt>Equality (`==`)</dt>
+              <dd>The equality operator checks whether its two operands are equal. Unlike the strict equality operator, <strong>it attempts to convert and compare operands that are of different types</strong>. </dd>
+              <br>
+              <dt>Strict Equality (`===`)</dt>
+              <dd>The strict equality operator checks whether its two operands are equal. Unlike the equality operator, the strict equality operator <strong>always considers operands of different types to be different</strong>.</dd>
+            </dl>
+
+            ---
+
+            <dl>
+              <dt>Inequality (`!=`)</dt>
+              <dd>The inequality operator checks whether its two operands are not equal. Unlike the strict inequality operator, it attempts to convert and compare operands that are of different types.</dd>
+              <br>
+              <dt>Strict Inequality (`!==`)</dt>
+              <dd>The strict inequality operator checks whether its two operands are not equal. Unlike the inequality operator, the strict inequality operator always considers operands of different types to be different. </dd>
+            </dl>
+
+            ---
+
+            ### Key Takeaways
+            - Use `===` when testing for equality (it's safer). Use `==` once you understand truthiness (or you just can't get the job done with `===`).
+            - Any value can be converted to a Boolean value:
+            
+                ```js
+                myBool = Boolean(myVar); // Method 1
+                myBool = !!myVar; // Method 2
+                ```
+                
+            ---
+
+            ## `if` blocks
+            An `if` block only runs if its expression evaluates to `true`
+
+            ```js
+            if (condition) {
+
+              code to run if condition is true
+
+            }
+            
+            run some other code
+            ```
+
+            ---
+
+            ## `else` blocks
+            An `else` block only runs if all previous `if` and `else if` blocks have evaluated to `false`.
+
+            ```js
+            if (condition) {
+
+              code to run if condition is true
+
+            } else {
+
+              run some other code instead
+
+            }
+
+            ```
+
+            ---
+            ## `else` blocks
+            An `else if` block only runs if its expression evaluates to `true` AND all `if` and `else if` blocks before it have evaluated to `false`.
+
+            ```js
+            if (condition) {
+
+              code to run if condition is true
+
+            } else if(condition) { 
+
+              code to run if condition is true 
+              AND the previous blocks evaluate to false
+
+            } else {
+
+              run some other code instead
+            
+            }
+            ```
+
+           </textarea>
+        </section>
+      </div>
+    </div>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        plugins: [ RevealMarkdown ]
+      });
+    </script>
+  </body>
+</html>

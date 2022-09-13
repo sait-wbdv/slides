@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Javascript Arrays</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/theme/sky.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/highlight/monokai.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/highlight/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/markdown/markdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.js"></script>
+    <style>
+      dd {
+        margin-bottom: 2rem;
+      }
+      .reveal pre code {
+        padding: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown>
+          <textarea data-template>
+            ## Javascript
+            ### Arrays and String Methods
+
+            ---
+
+            ### Terminology
+            <dl>
+              <dt>Array literal</dt>
+              <dd>A comma separated list of values surrounded by <code>[]</code>. Ex: <code>['cats', 'dogs', 'fish']</code>.</dd>
+              <dt>Array index</dt>
+              <dd>The location of an item in an array. This is always a sequential number starting at <code>0</code>.</dd>
+              <dt>Array item</dt>
+              <dd>Any Javascript data type (i.e. value) that an array index points to.</dd>
+            </dl>
+
+            ---
+
+            ### Value data types
+            The _value_ of an item can be any data type: `undefined`, `null`, `number`, `string`, `boolean`, `array`, `object`, etc.
+
+            ```js
+
+            const randomStuff = [null, 9, 'Hello World!'];
+            
+            
+            ```
+
+            Although it's possible, you won't often see a mix of different value types in the same array.
+
+            ---
+
+            ### Accessing array items
+
+            ```js
+            const animals = ['Puppy', 'Bear', 'Moose', 'Tiger', 'Husky'];
+            ```
+            - The _first_ index of an array is `0`.
+
+                ```js
+                const firstAnimal = animals[0]; // Puppy
+                ```
+
+            - The _last_ index is `Array.length - 1`.
+
+                ```js
+                const lastAnimal = animals[animals.length - 1]; // Husky
+                ```
+            - Add an item with `array.length`.
+
+                ```js
+                animals[animals.length] = 'Wolf'; // New item
+                ```
+            
+            ---
+
+            ### Mutation and `const`
+            Creating an array using `const` still allows you to change (or mutate) the items in that array.
+
+            ```js
+            const hobbies = ['pinball', 'bug hunting', 'napping'];
+
+            hobbies[2] = 'proper sleeping'; // No error!
+            ```
+
+            `const` only stops you from _re-assigning_ `hobbies`, not changing `hobbies`.
+
+            ---
+
+            ## Common array operations
+            
+            ---
+
+            ### Finding and removing items
+
+            ```js
+            const animals = ['Puppy', 'Bear', 'Moose', 'Tiger', 'Husky'];
+
+            console.log(animals.length); // 2
+
+            ```
+
+            - Find the index of an item
+                ```js
+                let pos = animals.indexOf('Bear'); // 1
+                ```
+
+            - Remove an item by index position
+
+                ```js
+                let removedItem = animals.splice(pos, 1); 
+                
+                console.log(removedItem);
+                // 'Bear'
+
+                console.log(animals)
+                // ['Puppy', 'Moose', 'Tiger', 'Husky']
+                ```
+            
+            ---
+
+            ### Searching Arrays
+            The `includes()` method determines whether an array includes a certain value among its entries, returning true or false as appropriate.
+            ```js
+            const array1 = [1, 2, 3];
+
+            console.log(array1.includes(2));
+            // expected output: true
+
+            const pets = ['cat', 'dog', 'bat'];
+
+            console.log(pets.includes('cat'));
+            // expected output: true
+
+            console.log(pets.includes('at'));
+            // expected output: false
+
+            ```
+
+            ---
+
+            ### Converting an Array to a String
+            The `join()` method creates and returns a new string by concatenating all of the elements in an array, separated by commas or a specified separator string.
+            ```js
+            const elements = ['Fire', 'Air', 'Water'];
+
+            console.log(elements.join());
+            // expected output: "Fire,Air,Water"
+            
+            console.log(elements.join(''));
+            // expected output: "FireAirWater"
+            
+            console.log(elements.join('-'));
+            // expected output: "Fire-Air-Water"            
+
+            ```
+
+            ---
+
+            ## Strings and String Methods
+            
+            ---
+
+            ### The String Object
+            Javascript can convert strings into a `String` object, which includes:
+            - An array of each character in the string;
+            - An `String.length` property representing the number of characters in the string.
+            - A number of string methods that provide useful searching and manipulation functions. These methods will often accept or return the _index_ of a character or substring.
+
+            ---
+
+            ### Common string operations
+
+            - Find the ['length'](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/length) of a string
+
+                ```js
+                const browserType = 'mozilla';
+                
+                browserType.length; // 7
+
+                ```
+            
+            - Retrieving a specific string character
+
+                ```js
+                const firstChar = browserType[0];
+                
+                console.log(firstChar); // 'm'
+
+                ```            
+            - Retrieving the _last_ character
+                ```js
+                const lastChar = browserType[browserType.length - 1];
+                
+                console.log(lastChar); // 'a'
+
+                ```
+
+            ---
+
+            ### Testing for a substring
+            The [`includes()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes) method performs a case-sensitive search to determine whether one string may be found within another string, returning `true` or `false` as appropriate. 
+            
+            ```js
+            const browserType = 'mozilla';
+
+            if (browserType.includes('zilla')) {
+              console.log('Found zilla!');
+            } else {
+              console.log('No zilla here!');
+            }
+
+            ```
+
+            ---
+
+            ### Testing for a starting substring
+            The [`startsWith()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith) method determines whether a string begins with the characters of a specified string, returning true or false as appropriate. 
+
+            ```js
+            const browserType = 'mozilla';
+
+            if (browserType.startsWith('moz')) {
+              console.log('Starts with moz!');
+            } else {
+              console.log("Doesn't start with moz!");
+            }
+
+            ```
+
+            ---
+
+            ### Testing for an ending substring
+            The [`endsWith()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith) method determines whether a string ends with the characters of a specified string, returning `true` or `false` as appropriate. 
+
+            ```js
+            const browserType = 'mozilla';
+
+            if (browserType.endsWith('zilla')) {
+              console.log('Ends with zilla!');
+            } else {
+              console.log("Doesn't end with moz!");
+            }
+
+            ```
+
+            ---
+
+            ### Finding the location of a substring
+            The [`indexOf()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf) method, given one argument: a substring to search for, searches the entire calling string, and returns the index of the first occurrence of the specified substring.
+
+            ```js
+            const paragraph = 'The quick brown fox jumps over the lazy dog. If the dog barked, was it really lazy?';
+
+            const searchTerm = 'dog';
+            const indexOfFirst = paragraph.indexOf(searchTerm);
+
+            console.log(`The index of the first "${searchTerm}" from the beginning is ${indexOfFirst}`);
+            // expected output: "The index of the first "dog" from the beginning is 40"
+
+            ```
+
+            ---
+
+            ### Updating parts of a string
+            The [`replace()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace) method returns a new string with some or all matches of a `pattern` replaced by a `replacement`.
+
+            ```js
+            const browserType = 'mozilla';
+            const updated = browserType.replace('moz','van');
+
+            console.log(updated);      // "vanilla"
+            console.log(browserType);  // "mozilla"
+
+            ```
+
+            ---
+
+            ### Extracting a substring from a string
+            The [`slice()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice) method extracts a section of a string and returns it as a new string, without modifying the original string. 
+
+            ```js
+            const browserType = 'mozilla';
+            console.log(browserType.slice(1, 4)); // "ozi"
+
+            ```
+
+            ---
+
+            ### More String methods
+            See [the complete list of Javascript string methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#instance_methods)
+            </textarea>
+        </section>
+      </div>
+    </div>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        plugins: [ RevealMarkdown, RevealHighlight ]
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Introduction to Javascript</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/theme/white.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/markdown/markdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.js"></script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown>
+          <textarea data-template>
+            ## Javascript: The big picture
+            <a href="https://developer.mozilla.org/en-US/docs/Glossary/JavaScript" target="_blank">A Quick History</a>
+            ---
+            ## HTML 
+            #### Content
+            The markup language that we use to structure and give meaning to our web content, for example:
+            - defining page elements (nav, headings, etc)
+            - embedding media (images, videos, audio, etc).
+            - managing connected files (`.css`, `.js`, `.png`, etc)
+            ---
+            ## CSS 
+            #### Presentation
+            A language of style rules that we use to apply styling to our HTML content, such as 
+            - colour
+            - typography
+            - layout
+            - animation (when used for presentation)
+            ---
+            ## Javascript 
+            #### Behaviour
+            The official programming language of the browser. It does the things HTML and CSS can't, such as:
+            - dynamically update content
+            - control media such as video
+            - animation of images, svgs, etc
+            - math, if you're into that kind of thing
+            ---
+            ## Syntax Considerations
+            - JavaScript is case-sensitive
+                - `myvar` is not the same as `myVar`
+            - hyphens (-) are not allowed in variable names
+                - CSS: `border-top`
+                - JS: `borderTop`
+            ---
+            ## Coding Conventions
+            - indent blocks with 2 spaces
+            - use camelCase for variable names;
+            - add spaces around operators (`=`, `+`, `*`)
+            - add spaces after commas (unless at end of line)
+            - limit line length to 80 characters (for readability)
+            ---
+            ## Javascript Value Types
+            There are more but we don't need to know about them.
+            ---
+            ## Primitive Types
+            - **Strings**: used to represent textual data.
+            - **Numbers**: floating point (integers are a lie).
+            - **Booleans**: `true` and `false`.
+            - **Null**: has exactly one value - null.
+            - **Undefined**: a variable that has not been assigned a value has the value undefined.
+                - never manually assign a variable as `undefined`.
+            ---
+            ## Complex Types
+            - **Arrays**: a list of values, including other arrays.
+            - **Objects**: a collection of name/value pairs (properties).
+            - **Functions**: a block of reusable code that accepts arguments (input data) and may or may not return a value.
+            
+          </textarea>
+        </section>
+      </div>
+    </div>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        plugins: [ RevealMarkdown ]
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The Browser Triad</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/theme/sky.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/highlight/monokai.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/highlight/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/markdown/markdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.js"></script>
+    <style>
+      :root {
+        --r-heading-text-transform: small-caps;
+      }
+      body .reveal .slides {
+        font-size: 36px;
+        text-align: left;
+      }
+
+      body .reveal .slides h1 {
+        font-size: 3em;
+      }
+
+      body .reveal .slides h2 {
+        font-size: 2em;
+      }
+
+      h1, h2 {
+        text-align: center;
+      }
+      
+      h1, h2, h3, h4, h5, h6 {
+        font-variant: small-caps;
+        text-align: center;
+      }
+      h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
+        font-variant: initial;
+      }
+      
+      dd {
+        margin-bottom: 2rem;
+      }
+
+      .reveal p > img {
+        display: block;
+        margin: auto;
+      }
+
+      .reveal pre code {
+        padding: 1rem;
+      }
+      .code {
+        font-family:'Courier New', Courier, monospace;
+        font-size: 2.5rem;
+        white-space: nowrap;
+        color: grey;
+      }
+      .code strong {
+        color: black;
+      }
+
+      .code.no-bullet {
+        list-style: none;
+        padding-left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown>
+          <textarea data-template>
+            # The Browser Triad
+            ## HTML, CSS and Javascript
+
+            ---
+
+            ## The Browser Triad
+            HTML, CSS and JS each do different and very important jobs in every web browser: 
+            - **HTML**: _Content Layer_
+            - **CSS**: _Presentation Layer_
+            - **Javascript**: _Behaviour Layer_
+
+            ---
+
+            ## HTML - Content Layer
+            HTML defines the meaning and structure of web content.
+            - Semantic HTML elements describe content and provide "meaning" to the browser (handy for screen readers)
+            - HTML elements can be nested (i.e. one element inside another) giving them _parent/child_ relationships.
+
+            ---
+
+            ## HTML Syntax
+            ![HTML Syntax](../../assets/images/html-css/grumpy-cat-small.png)
+
+            ![Attribute Syntax](../../assets/images/html-css/grumpy-cat-attribute-small.png)
+
+            See: [Getting started with HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started)
+
+            ---
+
+            ## CSS - Presentation Layer
+            The CSS that control the visual appearance of a web page. Examples: typography, layout, colour, etc.
+
+            ---
+
+            ### CSS Syntax
+            ![CSS Syntax](../../assets/images/html-css/css-declaration-small.png)
+
+            See: [CSS Basics](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics)
+
+            ---
+
+            ## Javascript - Behaviour Layer
+            The Javascript that controls the interactive behaviour of a web page. 
+            
+            In practice, the behaviour layer is responsible for everything the content and presentation layers _can't_ do (yet).
+
+            Javascript will be covered in more detail later.
+
+            ---
+
+            ## The Box Model
+            - Everything on a web page is a box. Web designers are really box designers.
+            
+            - HTML creates the boxes and CSS styles the boxes according to the Box Model.
+
+            - See: [Introduction to the CSS basic box model](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model)
+
+            ---
+
+            ## Box Model Diagram
+            ![Box Model](../../assets/images/html-css/box-model.png)
+
+            Source: [CSS: Box Model Explained](https://levelup.gitconnected.com/css-box-model-explained-60fc76fe9c4d)
+
+            ---
+
+            ## `display` Property
+            The display property controls which box model "mode" an HTML element is in. We will be covering the following display modes in this course:
+            - `none`: removes the element from the document
+            - `inline`: word level
+            - `block`: paragraph level
+            - `flex`: one-dimensional layouts (covered later)
+            - `grid`: two-dimensional layouts (covered later)
+            
+            ---
+
+            ## Inline elements
+            Used for word-level styles such as **bold** and _italicize_.
+            - They respect `left` & `right` margins and padding, but **not** `top` & `bottom`;
+                - Use `line-height` to separate content in the up/down direction;
+            - They cannot have a `width` and `height` set;
+            - They allow other elements to sit to their left & right.
+            - See:
+                - [block vs inline elements](https://stackoverflow.com/questions/9189810/css-display-inline-vs-inline-block) 
+                - [Understanding the CSS box model for inline elements](https://hacks.mozilla.org/2015/03/understanding-inline-box-model/)
+        
+            ---
+
+            ## Common inline elements
+            - `strong`: For **bolding** text
+                ```
+                <p>Hello, <strong>World</strong>! How are you doing?</p>
+                ```
+            - `em`: For _italicizing_ (emphasize) text
+                ```
+                <p>Hello, World! How are <em>you</em> doing?</p>
+                ```
+            - `img`: HTML images
+                ```
+                <p> Images <img src="/path/to/image.png"> act like words by default.</p>
+                ```
+                - You will often use `display: block` on images to make them behave more intuitively.
+
+            ---
+
+
+            ## Block-level elements
+            Are used for paragraph-like content. They:
+            - Respect all sides of `margin` and `padding`;
+            - Can have `width` and `height` set;
+            - Force a line break after the block element;
+            - Are full-width if width is not defined;
+            - Are zero height if there is no content.
+        
+            ---
+
+            ## Common Block-level elements:
+            ```
+            <main>
+              <h1>Hello World!</h1>
+              <p>How are you doing?</p>
+            </main>
+            ```
+            - Headings: `h1`, `h2`, `h3`, `h4`, `h5`, `h6`
+            - Paragraphs: `p`
+            - Lists: `ul` (bulleted), `ol` (numbered)
+            - Layout: `header`, `footer`, `main`, `nav` 
+            - Generic: `div`
+                - used for layout with no semantic meaning
+
+            ---
+
+            ## Common quirks
+            You will often have to deal with common quirks to the box model:
+            - HTML images are inline by default and behave like words. Use `display: block` to fix this;
+            - Block level elements are zero height if they're empty and seem to disappear. Either add content or set an explicit `height` to the element;
+            - Buttons, links and most form elements are also inline by default. Use `display: block` as needed. 
+
+          </textarea>
+        </section>
+      </div>
+    </div>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        plugins: [ RevealMarkdown, RevealHighlight ]
+      });
+    </script>
+  </body>
+</html>

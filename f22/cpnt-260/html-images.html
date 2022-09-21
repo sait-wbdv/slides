@@ -105,7 +105,7 @@
             ## High-frequency Images
             Parts of an image (or the whole image) where colour and contrast change a lot from one pixel to the next. 
 
-            ![Example of a high frequency image](../../assets/images/images/high-frequency.png)
+            ![Example of a high frequency image](../../assets/images/images/high-frequency.jpg)
 
             ---
 
@@ -166,7 +166,9 @@
             ---
 
             ## Styling HTML images
-            - When in doubt, go with:
+            - Setting a `width` _and_ `height` may distort your image:
+                <img class="distorted" src="../../assets/images/images/high-frequency.jpg" alt="distorted image">
+            - When in doubt, try:
                 ```css
                 img {
                   width: 100%;
@@ -179,8 +181,6 @@
                   display: block;
                 }
                 ```
-            - Avoid setting _both_ a `width` _and_ `height` (unless you reset with `initial`) _in CSS_. This will distort your image:
-                <img class="distorted" src="../../assets/images/images/high-frequency.png" alt="distorted image">
 
             ---
 

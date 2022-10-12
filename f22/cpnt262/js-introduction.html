@@ -1,73 +1,365 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Introduction to Javascript</title>
+    <title>Javascript Types</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/theme/white.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/theme/sky.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/highlight/monokai.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/base16/atelier-forest.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/highlight/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/markdown/markdown.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.js"></script>
+    <style>
+      :root {
+        --r-heading-text-transform: small-caps;
+      }
+      body .reveal .slides {
+        font-size: 36px;
+        text-align: left;
+      }
+
+      body .reveal .slides h1 {
+        font-size: 3em;
+      }
+
+      body .reveal .slides h2 {
+        font-size: 2em;
+      }
+
+      h1, h2 {
+        text-align: center;
+      }
+      
+      h1, h2, h3, h4, h5, h6 {
+        font-variant: small-caps;
+        text-align: center;
+      }
+      h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
+        font-variant: initial;
+      }
+      
+      dd {
+        margin-bottom: 2rem;
+      }
+
+      .reveal p > img {
+        display: block;
+        margin: auto;
+      }
+
+      .reveal pre code {
+        padding: 1rem;
+      }
+      .code {
+        font-family:'Courier New', Courier, monospace;
+        font-size: 2.5rem;
+        white-space: nowrap;
+        color: grey;
+      }
+      .code strong {
+        color: black;
+      }
+
+      .code.no-bullet {
+        list-style: none;
+        padding-left: 0;
+      }
+    </style>
   </head>
   <body>
     <div class="reveal">
       <div class="slides">
         <section data-markdown>
           <textarea data-template>
-            ## Javascript: The big picture
-            <a href="https://developer.mozilla.org/en-US/docs/Glossary/JavaScript" target="_blank">A Quick History</a>
+            # Javascript Basics
+            ## The Browser Behaviour Layer
+
             ---
+            
+            ### Review
+            ## The Browser Triad
+
+            ---
+
             ## HTML 
-            #### Content
+            ### Content
             The markup language that we use to structure and give meaning to our web content, for example:
             - defining page elements (nav, headings, etc)
             - embedding media (images, videos, audio, etc).
             - managing connected files (`.css`, `.js`, `.png`, etc)
+
             ---
+
             ## CSS 
-            #### Presentation
+            ### Presentation
             A language of style rules that we use to apply styling to our HTML content, such as 
             - colour
             - typography
             - layout
             - animation (when used for presentation)
+
             ---
+
             ## Javascript 
-            #### Behaviour
+            ### Behaviour
             The official programming language of the browser. It does the things HTML and CSS can't, such as:
             - dynamically update content
             - control media such as video
             - animation of images, svgs, etc
             - math, if you're into that kind of thing
+
             ---
-            ## Syntax Considerations
-            - JavaScript is case-sensitive
+
+            ## Adding JS to HTML
+            ### Recommendations for this course
+
+            ---
+
+            ### Option 1: Embedded Javascript
+            Recommended for single-page behaviour.
+            ```html
+            <html>
+            <head>
+              <title>Hello world!</title>
+            </head>
+            <body>
+              <h1>Hello world!</h1>
+              <script>
+                console.log("Hello world!");
+              </script>
+            </body>
+            </html>
+            ```
+            - `<script>` element goes just before the `</body>`
+
+            ---
+
+            ### Option 2: Deferred external links
+            Recommended for multi-page behavior and general tidiness.
+
+            ```html
+            <html>
+              <head>
+                <title>Hello World!</title>
+                <script src="js/client.js" defer></script>
+              </head>
+              <body>
+                <h1>Hello world!</h1>
+              </body>
+            </html>
+            ```
+
+            ```js
+            // js/client.js
+
+            console.log('Hello world!');
+            ```
+            - The `</script>` is required, even when empty;
+            - the `defer` runs the file after the page loads;
+
+            ---
+
+            ## Content Delivery Networks
+            There are many other ways to add JS to an HTML page but one of the most convenient is using a CDN.
+
+            ```html
+            <html>
+              <head>
+                <title>Hello Font Awesome!</title>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"></script>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+              </head>
+              <body>
+                <i class="fa-brands fa-square-js"></i>
+              </body>
+            </html>
+            ```
+            - To see if it can be loaded via a CDN, search:
+            > "cdn [your favourite tool]"
+
+            ---
+            
+            ## Writing JS
+            ### Rules, tips and reminders
+
+            ---
+            
+            ## Naming variables
+            - JavaScript is case-sensitive:
                 - `myvar` is not the same as `myVar`
-            - hyphens (-) are not allowed in variable names
+            - Use camelCase:
+                - Yup: `lastName`
+                - Nope: `last_name`
+            - Hyphens (-) are not allowed in variable names
                 - CSS: `border-top`
                 - JS: `borderTop`
+            - Semi-colons are optional but recommended;
+            - Turn on strict mode for better errors:
+                ```js
+                // Put this at the top of your file
+                'use strict';
+                ```
+
             ---
-            ## Coding Conventions
-            - indent blocks with 2 spaces
-            - use camelCase for variable names;
-            - add spaces around operators (`=`, `+`, `*`)
-            - add spaces after commas (unless at end of line)
-            - limit line length to 80 characters (for readability)
+
+            ## Readable code
+            - 2 space indents
+            - Spaces around operators (`=`, `+`, `*`, etc)
+                - **Yup**: 
+                    ```js
+                    const total = 99.99 * 0.05;
+                    ```
+                - **Nope**:
+                    ```js
+                    const total=99.99*0.05;
+                    ```
+            - Limit line length to 80 characters
+            - Comment your code!
+
             ---
+
             ## Javascript Value Types
+            ### 8 Types covered in this course
             There are more but we don't need to know about them.
+            
             ---
+
             ## Primitive Types
-            - **Strings**: used to represent textual data.
             - **Numbers**: floating point (integers are a lie).
+            - **Strings**: used to represent textual data.
             - **Booleans**: `true` and `false`.
             - **Null**: has exactly one value - null.
             - **Undefined**: a variable that has not been assigned a value has the value undefined.
                 - never manually assign a variable as `undefined`.
+
             ---
+
+            ### Numbers
+            ```js
+            const price = 20;
+            const gst = 1;
+            const total = price + gst;
+
+            console.log(total); // 21
+            ```
+            - **Number literal**: a number with no quotes;
+            - There is one type of Number in JS: floating point;
+            - Integers kind of exist but not really:
+                - `46` is actually something like `46.000001`;
+
+            ---
+
+            ### Strings
+            ```js
+            const firstName = 'Tony'; // single quotes
+            const lastName = "Grimes"; // double quotes
+            const fullName = `${firstName} ${lastName}`; // using backticks and template literals
+
+            console.log(fullName); // 'Tony Grimes'
+            ```
+
+            - **String literal**: a string of alphanumeric characters surrounded by single/double quotes or backticks;
+            - **Careful**: Sometimes numbers are actually strings:
+                ```js
+                const fakeNumber = '42';
+                ```
+
+            ---
+
+            ### Booleans
+            ```js
+            const hungry = true;
+            
+            if (hungry) {
+              console.log('Time for lunch!');
+            }
+            ```
+            - **Boolean literal**: Either `true` or `false` with no quotes;
+            - There are only two possible Boolean values;
+
+            ---
+
+            ### Null
+            ```js
+            const foodInStomach = null;
+
+            console.log(foodInStomach); // null
+            ```
+            - **Null literal**: `null` with no quotes;
+            - `null` means "nothing";
+
+            ---
+
+            ### `undefined`
+            - Special type used by Javascript when a variable is non-existent or has no value;
+            - Never explicitly assign a variable to undefined;
+
+            ---
+
             ## Complex Types
             - **Arrays**: a list of values, including other arrays.
             - **Objects**: a collection of name/value pairs (properties).
             - **Functions**: a block of reusable code that accepts arguments (input data) and may or may not return a value.
-            
+
+            ---
+
+            ### Arrays
+            ```js
+            const colours = ['red', 'green', 'blue'];
+
+            console.log(colours[1]); // 'green'
+            ```
+            - **Array literal**: A comma-separated list of values surrounded by square brackets(`[ ]`);
+            - Values can be any type, including another array;
+            - Array items are accessed by `index` starting at `0`;
+
+            ---
+
+            ### Objects
+            ```js
+            const person = {
+              name: 'Tony Grimes',
+              age: 46,
+              mentalAge: 12,
+              hungry: true,
+              hobbies: ['pinball', 'coding', 'disc golf']
+            }
+            ```
+            - **Object literal**: A comma-separated list of `key`:`value` pairs surrounded by curly braces;
+            - In Javascript, objects are simply a list of `key`/`value` pairs and that's it;
+                - In other object-oriented languages, objects have a different meaning and are more complex;
+
+            ---
+
+            ### Functions
+            ```js
+            // Traditional ES5 syntax
+            const greet = function() {
+              console.log("Hello!");
+            }
+
+            greet(); // 'Hello!'
+
+            // Newer ES6 syntax
+            const farewell = () => {
+              console.log("Goodbye!");
+            }
+
+            farewell(); // 'Goodbye!'
+            ```
+            - Covered in detail later in the course;
+            - Methods are functions that are defined inside objects;
+
+            ---
+
+            ## Further resources
+            - **[Learn JavaScript in 1 Hour](https://www.youtube.com/watch?v=W6NZfCO5SIk)** by Mosh
+            - Freecode Camp: 
+                - [Full JavaScript Course for Beginners](https://www.freecodecamp.org/news/full-javascript-course-for-beginners/)
+                - Exercises: [Javascript basics](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/#basic-javascript)
+            - Code Academy: [Introduction to Javascript](https://www.codecademy.com/learn/introduction-to-javascript)
+            - Online textbook: [Eloquent Javascript](https://eloquentjavascript.net/) by Marijn Haverbeke
+
           </textarea>
         </section>
       </div>
@@ -75,7 +367,7 @@
     <script>
       Reveal.initialize({
         hash: true,
-        plugins: [ RevealMarkdown ]
+        plugins: [ RevealMarkdown, RevealHighlight ]
       });
     </script>
   </body>

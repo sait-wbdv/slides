@@ -101,7 +101,8 @@
             const headingElement = document.querySelector('h1');
             ```
             - `document` is the top-level DOM variable that represents the HTML element;
-            - `.querySelector()` finds the first HTML element that matches the provided CSS selector;
+            - `.querySelector()` finds the _first_ HTML element that matches the provided CSS selector;
+                - use `.querySelectorAll()` to find every occurrence of the selector, which you then have to loop through.
 
             ---
 

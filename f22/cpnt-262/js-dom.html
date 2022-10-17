@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document Object Model</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/theme/sky.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/highlight/monokai.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/base16/atelier-forest.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/highlight/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/markdown/markdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.js"></script>
+    <style>
+      :root {
+        --r-heading-text-transform: small-caps;
+      }
+      body .reveal .slides {
+        font-size: 36px;
+        text-align: left;
+      }
+
+      body .reveal .slides h1 {
+        font-size: 3em;
+      }
+
+      body .reveal .slides h2 {
+        font-size: 2em;
+      }
+
+      h1, h2 {
+        text-align: center;
+      }
+      
+      h1, h2, h3, h4, h5, h6 {
+        font-variant: small-caps;
+        text-align: center;
+      }
+      h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
+        font-variant: initial;
+      }
+      
+      dd {
+        margin-bottom: 2rem;
+      }
+
+      .reveal p > img {
+        display: block;
+        margin: auto;
+      }
+
+      .reveal pre code {
+        padding: 1rem;
+      }
+      .code {
+        font-family:'Courier New', Courier, monospace;
+        font-size: 2.5rem;
+        white-space: nowrap;
+        color: grey;
+      }
+      .code strong {
+        color: black;
+      }
+
+      .code.no-bullet {
+        list-style: none;
+        padding-left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown>
+          <textarea data-template>
+            ## Document Object Model
+            ### Modifying Page Content with Javascript
+            ---
+
+            ### Terminology
+            <dl>
+              <dt>Document Object Model</dt>
+              <dd>A collections of objects, methods and properties that provide a way to manipulate an HTML page with Javascript.</dd>
+              <dt>DOM variable</dt>
+              <dd>A Javascript variable that contains an HTML element (ex. a paragraph) as its value.</dd>
+            </dl>
+
+            ---
+
+            ## Common DOM methods and properties
+
+            ---
+
+            ## `document.querySelector()`
+            ### Creating a DOM variable
+            ```html
+            <body>
+              <h1 class="intro">Hello world!</h1>
+            </body>
+            ```
+
+            ```js
+            const headingElement = document.querySelector('h1');
+            ```
+            - `document` is the top-level DOM variable that represents the HTML element;
+            - `.querySelector()` finds the first HTML element that matches the provided CSS selector;
+
+            ---
+
+            ### Any CSS selector is valid
+
+            ```html
+            <body>
+              <h1 class="intro">Hello world!</h1>
+            </body>
+            ```
+
+            All of these selectors will create the same DOM variable:
+
+            ```js
+            const headingElement = document.querySelector('h1');
+            ```
+            ```js
+            const headingElement = document.querySelector('.intro');
+            ```
+            ```js
+            const headingElement = document.querySelector('body > h1');
+            ```
+
+            ---
+
+            ### `Element.innerHTML`
+            Accessing HTML Content
+            ```html
+            <body>
+              <h1 class="intro">Hello world!</h1>
+            </body>
+            ```
+
+            ```js
+            // Create DOM variable
+            const headingElement = document.querySelector('h1');
+
+            // Access element content with .innerHTML property
+            const h1Content = headingElement.innerHTML; // 'Hello world!'
+            ```
+
+            ---
+
+            ### `Element.innerHTML`
+            Editing HTML Content
+            ```html
+            <body>
+              <h1 class="intro">Hello world!</h1>
+            </body>
+            ```
+
+            ```js
+            // Create DOM variable
+            const headingElement = document.querySelector('h1');
+
+            // Edit element content with .innerHTML property
+            headingElement.innerHTML = 'Hello Tony!';
+            ```
+            After:
+            ```html
+            <body>
+              <h1 class="intro">Hello Tony!</h1>
+            </body>
+            ```
+            
+            ---
+
+            ### `Element.innerHTML`
+            Creating new elements
+            ```js
+            // Edit element content with .innerHTML property
+            headingElement.innerHTML = 'Hello <em>Tony</em>!';
+            ```
+            ```html
+            <body>
+              <h1 class="intro">Hello <em>Tony</em>!</h1>
+            </body>
+            ```
+
+            ---
+
+            ## `prompt()`
+            ### Quick and dirty inputs
+            ```js
+            const name = prompt("What's your name?");
+            ```
+
+            ![Example of a browser prompt](../../assets/images/js/prompt-example.png)
+
+            ---
+
+            ```js
+            const h1 = document.querySelector('h1');
+            const name = prompt("What's your name?");
+            h1.innerHTML = `Hello ${name}!`;
+            ```
+
+            ![Example of a browser prompt](../../assets/images/js/prompt-tony.png)
+
+            ```html
+            <body>
+              <h1 class="intro">Hello Tony!</h1>
+            </body>
+            ```
+
+            ---
+
+            ## Key Takeaways
+            - All DOM variables will have the `.querySelector()` method;
+            - `.innerHTML` works both ways when reading and writing content;
+            - `.innerText` can be used if you don't want HTML tags included;
+            - `prompt()` is rarely used professionally; we're using it as a short cut for now;
+
+          </textarea>
+        </section>
+      </div>
+    </div>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        plugins: [ RevealMarkdown, RevealHighlight ]
+      });
+    </script>
+  </body>
+</html>

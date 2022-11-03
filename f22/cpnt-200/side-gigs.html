@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Content Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/theme/sky.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/highlight/monokai.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/base16/atelier-forest.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/highlight/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/markdown/markdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.js"></script>
+    <style>
+      :root {
+        --r-heading-text-transform: small-caps;
+      }
+      body .reveal .slides {
+        font-size: 36px;
+        text-align: left;
+      }
+
+      body .reveal .slides h1 {
+        font-size: 3em;
+      }
+
+      body .reveal .slides h2 {
+        font-size: 2.5em;
+      }
+      
+      body .reveal .slides h3 {
+        font-size: 2em;
+      }
+
+      h1, h2 {
+        text-align: center;
+      }
+      
+      h1, h2, h3, h4, h5, h6 {
+        font-variant: small-caps;
+        text-align: center;
+      }
+      h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
+        font-variant: initial;
+      }
+      
+      dd {
+        margin-bottom: 2rem;
+      }
+
+      .reveal p > img {
+        display: block;
+        margin: auto;
+      }
+
+      .reveal pre code {
+        padding: 1rem;
+      }
+      .code {
+        font-family:'Courier New', Courier, monospace;
+        font-size: 2.5rem;
+        white-space: nowrap;
+        color: grey;
+      }
+      .code strong {
+        color: black;
+      }
+
+      .code.no-bullet {
+        list-style: none;
+        padding-left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown>
+          <textarea data-template>
+            # Content Management
+            ## is Client Management 
+
+            ---
+            
+            ## Side-gigs
+            ### Assumptions
+            - New website (could be a redesign);
+            - Client is responsible for content;
+            - Client wants to edit their own content after launch.
+
+            ---
+
+            ### A typical contract project
+            1. First-contact with the potential client;
+            2. Pitch and proposal;
+            3. Close the contract;
+            4. Website developed with placeholder content;
+            5. Client takes forever getting you real content;
+            6. When it finally arrives, it breaks the design;
+            7. Fix and repeat, slowly.
+
+            ---
+
+            ## End goals for course
+            1. Make it as easy as possible for the client to add content;
+            2. Create content and endpoints to be used in the second half of CPNT 262
+            3. Optional: Begin building your Final Project for CPNT 265.
+
+            ---
+
+            ## First contact
+            Ways that you might meet a potential client:
+            - Word of mouth
+            - Family member
+            - Cold call
+            - Pretend
+            - etc
+
+            ---
+
+            ## Content Management with Strapi
+            1. Create a new Strapi project;
+            2. Design content types;
+            3. Create user for client;
+            4. Train client for content entry;
+            5. Begin design and development around real content via REST API (CPNT 262)! 
+
+            ---
+
+            ## CPNT 200 Assessment Overview
+            1. **Client site profile**: find and anyalyze a client category that you will use for your Strapi project;
+            2. **Deploy a Strapi project**: Define Content Types for entering content for achievements;
+            3. **Content Achievements**: Create content that a client would be responsible for in a real project;
+            4. Documentation and polish: Create project documentation and finishing touches that you would hand over to a client.
+
+            ---
+
+            ## Further resources
+
+
+          </textarea>
+        </section>
+      </div>
+    </div>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        plugins: [ RevealMarkdown, RevealHighlight ]
+      });
+    </script>
+  </body>
+</html>

@@ -113,6 +113,11 @@
             Before you begin deploying to [render.com](https://render.com/), you should have the following prepared:
             - A free [render.com](https://render.com/) account;
             - Install the [Import Export Entries](https://market.strapi.io/plugins/strapi-plugin-import-export-entries) plugin for Strapi;
+                ```
+                $ npm install strapi-plugin-import-export-entries
+                ```
+                - `$ npm run build` to enable the plugin
+                    - You may have to follow the full instructions on the Plugin home page to enable the plugin?
                 - Export your local Entries into a JSON file;
             - A GitHub repo containing your (working) Strapi project;
 
@@ -177,6 +182,12 @@
             4. Done!
 
             There is also an Import function in the Import/Export Entries section under the Content-type Builder but it doesn't seem to work.
+
+            ---
+
+            ## Step 6: API Token
+            You will also need to [re-add your API Token](https://docs.strapi.io/developer-docs/latest/setup-deployment-guides/configurations/optional/api-tokens.html) to make API requests on the live server. **This will be a different token than your local one**.
+
             ---
 
             ## Further resources

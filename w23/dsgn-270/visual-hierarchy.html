@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Visual Hierarchy</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/theme/sky.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/highlight/monokai.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/highlight/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/markdown/markdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.js"></script>
+    <style>
+      :root {
+        --r-heading-text-transform: small-caps;
+      }
+      body .reveal .slides {
+        font-size: 36px;
+        text-align: left;
+      }
+
+      body .reveal .slides h1 {
+        font-size: 3em;
+      }
+
+      body .reveal .slides h2 {
+        font-size: 2em;
+      }
+
+      h1,
+      h2 {
+        text-align: center;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-variant: small-caps;
+        text-align: center;
+      }
+      h1 code,
+      h2 code,
+      h3 code,
+      h4 code,
+      h5 code,
+      h6 code {
+        font-variant: initial;
+      }
+
+      dd {
+        margin-bottom: 2rem;
+      }
+      .reveal pre code {
+        padding: 1rem;
+      }
+      .code {
+        font-family: "Courier New", Courier, monospace;
+        font-size: 2.5rem;
+        white-space: nowrap;
+        color: grey;
+      }
+      .code strong {
+        color: black;
+      }
+
+      .code.no-bullet {
+        list-style: none;
+        padding-left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown>
+          <textarea data-template>
+            # Design Principles
+
+            ---
+
+            ## Video: [Design Principles - Visual Hierarchy](https://www.youtube.com/watch?v=qZWDJqY27bw) The Freelancers Journey
+  - Put yourself in the shoes of your client's client
+  - Overly complex and cluttered designs are hard to get information from
+    - Avoid letting information compete for prominance
+
+            ---
+            
+            ## Video: [Design Principles - Repetition](https://www.youtube.com/watch?v=8zhhc5pzE9Y) - The Freelancers Journey
+            - Use repeating patterns, sizes, and shapes to communicate meaning, set expectations, and create a pattern which can be **strategically broken**
+            
+            ---
+
+            ## Video: [Design Principles: Grid Spacing and Alignment](https://www.youtube.com/watch?v=9QRIjnMEXw8)
+            - Grids are commonly used in design to organize content
+            - If content isn't balanced in sized, a traditional grid might not be the best way to organize content
+
+            ---
+            
+            ## Video: [Design Principles - Space](https://www.youtube.com/watch?v=3dESVj7-XzI)
+            - Empty space is used to:
+            1. create rhythm
+            2. establish relationships between content
+            3. give elements the ability to breathe
+
+            ---
+            
+            ## Video: [Design Principles - Typography](https://www.youtube.com/watch?v=yom0nogFN3k)
+            - Display and Text typefaces
+            - Typography makes a statement and creates identity
+            
+            ---
+          </textarea>
+        </section>
+      </div>
+    </div>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        plugins: [RevealMarkdown, RevealHighlight],
+      });
+    </script>
+  </body>
+</html>

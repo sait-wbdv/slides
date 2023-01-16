@@ -85,20 +85,8 @@
 
             ## HTML - Content Layer
             HTML defines the meaning and structure of web content.
-            
-            ```html
-            <section class="intro">
-              <h1>About Tony</h1>
-              <p>Tony likes to play games! His faves:</p>
-              <ul>
-                <li>Pinball</li>
-                <li>King of Tokyo</li>
-                <li>D&D</li>
-              </ul>
-            </section>
-            ```
-            
-            Semantic HTML elements describe content and provide "meaning" to the browser (handy for screen readers)
+            - Semantic HTML elements describe content and provide "meaning" to the browser (handy for screen readers)
+            - HTML elements can be nested (i.e. one element inside another) giving them _parent/child_ relationships.
 
             ---
 
@@ -113,19 +101,6 @@
 
             ## CSS - Presentation Layer
             The CSS that control the visual appearance of a web page. Examples: typography, layout, colour, etc.
-
-            ```css
-            body {
-              font-size: 20px;
-              text-align: center;
-              color: rebeccapurple;
-              background-color: lightgrey;
-            }
-
-            h1 {
-              border-bottom: 2px solid black;
-            }
-            ```
 
             ---
 
@@ -145,67 +120,31 @@
 
             ---
 
-            ## Anatomy of a URL
-            See: <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_URL" target="_blank">What is a URL?</a>
+            ## The Box Model
+            - Everything on a web page is a box. Web designers are really box designers.
+            
+            - HTML creates the boxes and CSS styles the boxes according to the Box Model.
+
+            - See: [Introduction to the CSS basic box model](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model)
 
             ---
 
-            ### Protocol
-            <p class="code"><strong>https://</strong>example.com/users?name=tony</p>
-
-            ### Domain
-            <p class="code">https://<strong>example.com</strong>/users?name=tony</p>
-
-            ### File Path
-            <p class="code">https://example.com<strong>/users</strong>?name=tony</p>
-
-            ### Query Parameter
-            <p class="code">https://example.com/users<strong>?name=tony</strong></p>
+            ## Common quirks
+            You will often have to deal with common quirks to the box model:
+            - HTML images are inline by default and behave like words. Use `display: block` to fix this;
+            - Block level elements are zero height if they're empty and seem to disappear. Either add content or set an explicit `height` to the element;
+            - Buttons, links and most form elements are also inline by default. Use `display: block` as needed. 
 
             ---
 
-            ## An Introduction to HTTP
-            The Hyper Text Transfer protocol is how a browser requests a web page from a server.
+            ## Frequently Asked questions
 
             ---
 
-            ## HTTP Terminology
-            <dl>
-              <dt>Resource</dt>
-              <dd>The target of a Request, such as an HTML document, JSON data, image, etc.</dd>
-              <dt>Client</dt>
-              <dd>In this course, a client is the browser that makes a request for a Resource.</dd>
-              <dt>Server</dt>
-              <dd>A server is a online computer that accepts a request from a client (browser) and returns a response (usually a file like HTML, CSS or images).</dd>
-            </dl>
-
-            ---
-
-            ## Request/Response Cycle 
-            <dl>
-              <dt>HTTP Request</dt>
-              <dd>A request for a resource from the browser to a server.</dd>
-              <dt>HTTP Response</dt>
-              <dd>A response from a server to the browser containing either a requested resource or the result of an operation.</dd>
-            </dl>
-
-            ---
-
-            ## Example Request/Response
-            1. The browser makes a GET Request for a URL.
-            2. The server receives the Request and finds the Resource such as a file, image or data.
-            3. The server sends the Resource back as a Response.
-            4. The browser receives the Response and might:
-                - display a page/image/etc, OR;
-                - load JSON data with Javascript.
-
-            ---
-
-            ## Further Learning
-            - [Getting started with HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started)
-            - [CSS Basics](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics)
-            - [What is a URL?](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_URL)
-
+            ## Can I use `font-weight` in CSS instead of `<strong>` in HTML?
+            - You can make all content inside an element bold with the `font-weight` CSS property (italicize with `font-style`).
+            - If you want to make individual words in a sentence bold or italic, it's best to wrap the words with a `<strong>` (for bold) or `<em>` (for italics). The browser will style the words as bold/italic for you.
+            
           </textarea>
         </section>
       </div>

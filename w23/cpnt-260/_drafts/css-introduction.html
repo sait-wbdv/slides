@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Clickable Links</title>
+    <title>Introduction to CSS</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/theme/sky.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/highlight/monokai.min.css">
@@ -70,14 +70,36 @@
       <div class="slides">
         <section data-markdown>
           <textarea data-template>
-            # Clickable Links
-            ## Important links should draw attention
+            # Introduction to CSS
+            ## The Presentation Layer
 
             ---
 
-            
+            ## Box Model Diagram
+            ![Box Model](../../assets/images/html/box-model.png)
+
+            Source: [CSS: Box Model Explained](https://levelup.gitconnected.com/css-box-model-explained-60fc76fe9c4d)
+
             ---
 
+            ## `display` Property
+            The display property controls which box model "mode" an HTML element is in. We will be covering the following display modes in this course:
+            - `none`: removes the element from the document
+            - `inline`: word level
+            - `block`: paragraph level
+            - `flex`: one-dimensional layouts (covered later)
+            - `grid`: two-dimensional layouts (covered later)
+           
+            ---
+
+            ## Frequently Asked questions
+
+            ---
+
+            ## Can I use `font-weight` in CSS instead of `<strong>` in HTML?
+            - You can make all content inside an element bold with the `font-weight` CSS property (italicize with `font-style`).
+            - If you want to make individual words in a sentence bold or italic, it's best to wrap the words with a `<strong>` (for bold) or `<em>` (for italics). The browser will style the words as bold/italic for you.
+                       
           </textarea>
         </section>
       </div>

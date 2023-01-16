@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Coding Best Practices</title>
+    <title>Ui Icon and the Triad</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/theme/sky.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/highlight/monokai.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/highlight/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/markdown/markdown.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/fontawesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"></script>
     <style>
       :root {
         --r-heading-text-transform: small-caps;
@@ -41,9 +45,8 @@
         margin-bottom: 2rem;
       }
 
-      .reveal p > img {
-        display: block;
-        margin: auto;
+      p {
+        text-align: center;
       }
 
       .reveal pre code {
@@ -70,94 +73,91 @@
       <div class="slides">
         <section data-markdown>
           <textarea data-template>
+            # HTML elements
+
+            ---
+
+            ## Paragraph
+            <i class="fa-solid fa-5x fa-paragraph"></i>
+
+            ---
+
+            ## Headings
+            <i class="fa-solid fa-heading"></i>
+
+            ---
+
+            ## Bulleted list
+            <i class="fa-solid fa-5x fa-list"></i>
+
+            ---
+
+            ## Numbered list
+            <i class="fa-solid fa-5x fa-list-ol"></i>
+
+            ---
+
+            ## Align center
+            <i class="fa-solid fa-align-center fa-5x"></i>
+
+            ---
+
+            ### Bold
+            <i class="fa-solid fa-bold fa-5x"></i>
+
+            ---
+
+            ## Italics
+            <i class="fa-solid fa-italic fa-5x"></i>
+
+            ---
+
+            ## Links
+            <i class="fa-solid fa-link-simple fa-5x"></i>
+
+            ---
+
+            ### Superscript
+            <i class="fa-solid fa-superscript fa-5x"></i>
+
+            ---
+
+            ## Subscript
+            <i class="fa-solid fa-subscript fa-5x"></i>
+
+            ---
+
+            ### Indent
+            <i class="fa-solid fa-indent fa-5x"></i>
+
+            ---
+
+            ### Fontface
+            <i class="fa-solid fa-font fa-5x"></i>
+
+            ---
+
+            ## Text Size
+            <i class="fa-sharp fa-solid fa-text-size fa-5x"></i>
+
+            ---
+
+            ## Line-height
+            <i class="fa-solid fa-line-height fa-5x"></i>
+
+
+            ### Fill
+            <i class="fa-solid fa-fill fa-5x"></i>
             
-            # Code Quality
-            ## Tips and Best Practices
+            ---
+
+            ### Image
+            <i class="fa-regular fa-image fa-5x"></i>
 
             ---
 
-            ```html
-            <div class="header_wrapper">
-              <h1>Some heading</h1>
-            </div>
-            ```
+            ### Write down your answers for later !
 
-            ---
-
-            <ol class="list-center"></ol>
-
-            ---
-
-            h1 {
-              letter-spacing: 5px;
-              font-family: 'Courier New', Courier, monospace;
-              text-align: center;
-            }
-            h2 {
-              letter-spacing: 5px;
-              font-family: 'Courier New', Courier, monospace;
-              text-align: center;
-            }
-
-            ---
-
-            Valid HTML syntax: html, head and body
-
-            ---
-
-            <b><i>Deprecated elements</i></b>
-
-            ---
-
-            head, heading and header
-
-            ---
-
-            Font settings should be declared on the `body`
-
-            p{
-              font-family: initial;
-              font-size: 20px;
-              color: darkblue;
-            }
-            ol{
-              font-size: 20px;
-              text-align: justify;
-              
-            }
-
-            ---
-
-            VS Code syntax error squigglies
-
-            ---
-
-            Indentation
-
-            ---
-
-            Classitis
-
-            consider using less classes on individual elements and instead use them on a wrapper with descendant selectors;
-
-            .ingredients,
-            .seasoning,
-            .steps-list {
-              font-family: "Hind Madurai", "Mukta Vaani", "Oxygen", sans-serif;
-              font-size: 18px;
-              color: rgb(56, 51, 42);
-              line-height: 1.5em;
-            }
-
-            ---
-
-            <div style="text-align: top;"></div>
-
-            ---
-
-            <h1>
-              Valorant
-            </h1>
           </textarea>
         </section>
       </div>

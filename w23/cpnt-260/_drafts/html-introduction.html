@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Introduction to HTML</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/theme/sky.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/highlight/monokai.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/highlight/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/markdown/markdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.js"></script>
+    <style>
+      :root {
+        --r-heading-text-transform: small-caps;
+      }
+      body .reveal .slides {
+        font-size: 36px;
+        text-align: left;
+      }
+
+      body .reveal .slides h1 {
+        font-size: 3em;
+      }
+
+      body .reveal .slides h2 {
+        font-size: 2em;
+      }
+
+      h1, h2 {
+        text-align: center;
+      }
+      
+      h1, h2, h3, h4, h5, h6 {
+        font-variant: small-caps;
+        text-align: center;
+      }
+      h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
+        font-variant: initial;
+      }
+      
+      dd {
+        margin-bottom: 2rem;
+      }
+
+      .reveal p > img {
+        display: block;
+        margin: auto;
+      }
+
+      .reveal pre code {
+        padding: 1rem;
+      }
+      .code {
+        font-family:'Courier New', Courier, monospace;
+        font-size: 2.5rem;
+        white-space: nowrap;
+        color: grey;
+      }
+      .code strong {
+        color: black;
+      }
+
+      .code.no-bullet {
+        list-style: none;
+        padding-left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown>
+          <textarea data-template>
+            # Introduction to HTML
+            ## The Content Layer
+
+            ---
+
+            ## Inline elements
+            Used for word-level styles such as **bold** and _italicize_.
+            - They respect `left` & `right` margins and padding, but **not** `top` & `bottom`;
+                - Use `line-height` to separate content in the up/down direction;
+            - They cannot have a `width` and `height` set;
+            - They allow other elements to sit to their left & right.
+            - See:
+                - [block vs inline elements](https://stackoverflow.com/questions/9189810/css-display-inline-vs-inline-block) 
+                - [Understanding the CSS box model for inline elements](https://hacks.mozilla.org/2015/03/understanding-inline-box-model/)
+        
+            ---
+
+            ## Common inline elements
+            - `strong`: For **bolding** text
+                ```
+                <p>Hello, <strong>World</strong>! How are you doing?</p>
+                ```
+            - `em`: For _italicizing_ (emphasize) text
+                ```
+                <p>Hello, World! How are <em>you</em> doing?</p>
+                ```
+            - `img`: HTML images
+                ```
+                <p> Images <img src="/path/to/image.png"> act like words by default.</p>
+                ```
+                - You will often use `display: block` on images to make them behave more intuitively.
+
+            ---
+
+
+            ## Block-level elements
+            Are used for paragraph-like content. They:
+            - Respect all sides of `margin` and `padding`;
+            - Can have `width` and `height` set;
+            - Force a line break after the block element;
+            - Are full-width if width is not defined;
+            - Are zero height if there is no content.
+        
+            ---
+
+            ## Common Block-level elements:
+            ```
+            <main>
+              <h1>Hello World!</h1>
+              <p>How are you doing?</p>
+            </main>
+            ```
+            - Headings: `h1`, `h2`, `h3`, `h4`, `h5`, `h6`
+            - Paragraphs: `p`
+            - Lists: `ul` (bulleted), `ol` (numbered)
+            - Layout: `header`, `footer`, `main`, `nav` 
+            - Generic: `div`
+                - used for layout with no semantic meaning
+
+          ---
+
+          ## Frequently Asked questions
+
+          ---
+
+          ## What's the difference between `<strong>` and `<b>`?
+          This also applies to `<em>` and `<i>`.
+          - `<b>` is the old way of bolding and is deprecated (i.e. it shouldn't be used anymore). Use `<strong>` instead.
+          - Similarly, `<i>` is the old way of bolding and is deprecated. Use `<em>` instead.
+
+           
+          </textarea>
+        </section>
+      </div>
+    </div>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        plugins: [ RevealMarkdown, RevealHighlight ]
+      });
+    </script>
+  </body>
+</html>

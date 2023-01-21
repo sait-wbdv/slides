@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Booleans</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/theme/sky.min.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/highlight/monokai.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/highlight/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/markdown/markdown.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.js"></script>
+  <style>
+    :root {
+      --r-heading-text-transform: small-caps;
+    }
+
+    body .reveal .slides {
+      font-size: 36px;
+      text-align: left;
+    }
+
+    body .reveal .slides h1 {
+      font-size: 3em;
+    }
+
+    body .reveal .slides h2 {
+      font-size: 2em;
+    }
+
+    h1,
+    h2 {
+      text-align: center;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-variant: small-caps;
+      text-align: center;
+    }
+
+    h1 code,
+    h2 code,
+    h3 code,
+    h4 code,
+    h5 code,
+    h6 code {
+      font-variant: initial;
+    }
+
+    dd {
+      margin-bottom: 2rem;
+    }
+
+    .reveal pre code {
+      padding: 1rem;
+    }
+
+    .code {
+      font-family: "Courier New", Courier, monospace;
+      font-size: 2.5rem;
+      white-space: nowrap;
+      color: grey;
+    }
+
+    .code strong {
+      color: black;
+    }
+
+    .code.no-bullet {
+      list-style: none;
+      padding-left: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section data-markdown>
+        <textarea data-template>
+
+          # Boolean Operations
+
+          Manipulate objects
+            
+          ---
+
+          ## 1. Union
+          
+          - Union combines the selected shapes into a boolean group. 
+          - If the objects overlap, the new shapes outer path consists of the composite of its sublayers’ paths minus any segments that overlap. 
+          - The stroke would then be applied to that outer path ignoring any path segments which overlap each other.
+          ---
+
+          ## 2. Subtract
+          - Subtract is the opposite of Union.
+          - Subtract removes the area of a shape or set of shapes from a base shape. 
+          - Only the bottom shape layer is solid, the rest are subtracted from it.
+          ---
+          
+          ## 3. Intersect 
+
+          - Inersect creates a boolean group whose shape consists only of the overlapping parts of its sublayers.
+
+          ---
+
+          ### Exclude
+
+          - Exclude is the opposite of Intersect
+          - Eclude shows only the areas of it's sublayers that **do not** overlap
+
+          ---
+
+          ## 4. Figma Shapes
+
+
+          - ellipses
+          - squares
+          - lines
+          - text
+
+          ---
+          </textarea>
+      </section>
+    </div>
+  </div>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      plugins: [RevealMarkdown, RevealHighlight],
+    });
+  </script>
+</body>
+
+</html>

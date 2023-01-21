@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Markdown</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/theme/sky.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/highlight/monokai.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/highlight/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/markdown/markdown.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.js"></script>
+  <style>
+    :root {
+      --r-heading-text-transform: small-caps;
+    }
+
+    body .reveal .slides {
+      font-size: 32px;
+      text-align: left;
+    }
+
+    body .reveal .slides h1 {
+      font-size: 3em;
+    }
+
+    body .reveal .slides h2 {
+      font-size: 2em;
+    }
+
+    h1,
+    h2 {
+      text-align: center;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-variant: small-caps;
+    }
+
+    dd {
+      margin-bottom: 2rem;
+    }
+
+    .reveal pre code {
+      padding: 1rem;
+    }
+
+    .code {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 2.5rem;
+      white-space: nowrap;
+      color: grey;
+    }
+
+    .code strong {
+      color: black;
+    }
+
+    .code.no-bullet {
+      list-style: none;
+      padding-left: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section data-markdown>
+        <textarea data-template>
+            # Markdown 
+
+            ---
+
+            ## Markdown basics
+
+            - [Basic Syntax Guide](https://www.markdownguide.org/basic-syntax/)
+            - Use markdown for formatting:
+              - headings
+              - body text (bold, italics, underline...)
+              - lists (ordered, unordered)
+              - hyperlinks
+              - images
+              - **adding visual hierarchy to a document**
+                        
+            ---
+            
+            ### Collaborative Markdown
+
+            - We can write documents together in real time with markdown using tools like [Hackmd](https://hackmd.io)
+              - Hackmd is great because it can push directly to a github repo, it can be shared, edited, and read by many people
+            - Sign up on hackmd for some of our activities today
+
+            ---
+            ### Collaborative Markdown
+
+            - We can write documents together in real time with markdown using tools like [Hackmd](https://hackmd.io)
+            - Hackmd is great because it can push directly to a github repo, it can be shared, edited, and read by many people
+            - Sign up on hackmd for some of our activities today
+          </textarea>
+      </section>
+    </div>
+  </div>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      plugins: [RevealMarkdown, RevealHighlight]
+    });
+  </script>
+</body>
+
+</html>

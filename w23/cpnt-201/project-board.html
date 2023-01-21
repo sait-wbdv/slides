@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Project Boards</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/theme/sky.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/highlight/monokai.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/highlight/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/markdown/markdown.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.js"></script>
+  <style>
+    :root {
+      --r-heading-text-transform: small-caps;
+    }
+
+    body .reveal .slides {
+      font-size: 32px;
+      text-align: left;
+    }
+
+    body .reveal .slides h1 {
+      font-size: 3em;
+    }
+
+    body .reveal .slides h2 {
+      font-size: 2em;
+    }
+
+    h1,
+    h2 {
+      text-align: center;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-variant: small-caps;
+    }
+
+    dd {
+      margin-bottom: 2rem;
+    }
+
+    .reveal pre code {
+      padding: 1rem;
+    }
+
+    .code {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 2.5rem;
+      white-space: nowrap;
+      color: grey;
+    }
+
+    .code strong {
+      color: black;
+    }
+
+    .code.no-bullet {
+      list-style: none;
+      padding-left: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section data-markdown>
+        <textarea data-template>
+
+        # Github Projects
+        
+        Agile project organization with Kanban boards
+
+        ---
+
+        ### What are Project Boards
+        
+        - Kanban boards are commonly used or organize projects.
+        - They are used in [Agile Project Management](https://project-management.com/agile-project-management/) among others.
+        - You can simply use them to keep track of your own project
+        - They are especially helpful in team projects
+
+        ---
+
+        ## Common Project Board Software
+        - [Github Projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
+        - [Trello](https://trello.com)
+        - [Gitlab Boards](https://docs.gitlab.com/ee/user/project/issue_board.html).
+
+        ---
+
+        ### Basics of Your Project Board
+
+        1. Status States
+           - TODO
+           - Doing
+           - Done
+           - Blocked
+        2. Issues
+           - Tasks, bugs, action items etc.
+           - Comprised of (at minimum):
+             - A title
+             - A description
+             - A comment section
+           - Organize based on status in your kanban board
+        3. Labels
+           - Use labels to group types of tasks. Ie:
+             - bug
+             - priority levels
+             - enhancement
+             - documentation
+             - easyfix
+        ---
+
+        ### Creating Issues Tips
+        - Add the following to your issues:
+         - Context: describe the issue and necessary background information
+         - Definition of Done: the things that need to be accomplished for the issue to be considered resolved
+
+        ---
+
+        </textarea>
+      </section>
+    </div>
+  </div>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      plugins: [RevealMarkdown, RevealHighlight]
+    });
+  </script>
+</body>
+
+</html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Flexbox Extras</title>
+    <title>Responsive Banners</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/theme/sky.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/highlight/monokai.min.css">
@@ -70,8 +70,31 @@
       <div class="slides">
         <section data-markdown>
           <textarea data-template>
-            # Flexbox Extras
-            ## Common layout patterns
+            # Responsive Banners
+            ## Nested Flex and Media Queries
+
+            ---
+
+            ## Banners with Nested Flexboxes
+            ### Key Takeaways
+            - Flexbox/Grid Items can also be Flex/Grid Containers;
+            - Nested containers are often used to layout primary navigation with site logos/titles;
+            - Common banner layout pattern for internal pages:
+                ![Example banner for program website](../../assets/images/html/page-banner.png)
+
+            ---
+
+            ## Nested Example
+            The program website uses two nested Flexboxes (actually more) in its banner:
+
+            Outer Flexbox:
+            ![Banner flex inspector](../../assets/images/html/outer-flexbox.png)
+
+            Logo/Site title Flexbox:
+            ![Site title flex inspector](../../assets/images/html/site-title-flexbox.png)
+
+            Navigation Flexbox:
+            ![Navigation flex inspector](../../assets/images/html/nav-flexbox.png)
 
             ---
 
@@ -126,127 +149,26 @@
 
             ---
 
+            ## Mobile-first vs Desktop-first
+            <dl>
+              <dt>Mobile-first Design (recommended)</dt>
+              <dd>When a designer builds a website for mobile and then adds more complex layouts for desktop with a <code>min-width</code> media query.</dd>
+              <dt>Desktop-first Design</dt>
+              <dd>When a designer builds a complex layout for desktop and then simplifies the layout on mobile screens with a <code>max-width</code> media query.</dd>
+            </dl>
+
+            ---
             ### Hamburger menus
             A common mobile pattern is to use a button toggle:
 
             ![Example of open nav menu](../../assets/images/html/toggle-open.png)
 
-            See: [Making an Accessible Hamburger Menu](http://www.ashleysheridan.co.uk/blog/Making+an+Accessible+Hamburger+Menu) by Ashley Sheridan
+            See: [Create a responsive navigation nav with no JS!](https://www.youtube.com/watch?v=8QKOaTYvYUA) by Kevin Powell
 
             ---
 
-            ## Filling extra space
-            The [`flex` shorthand property](https://css-tricks.com/almanac/properties/f/flex/) can be used to make items expand to fill extra space:
+            ## Further Learning
 
-            ```css
-            .container {
-              display: flex;
-            }
-            .item {
-              flex: auto; /* default: 0 auto */
-            }
-            ```
-            
-            ---
-
-            ### Full-width horizontal navigation           
-            ```css
-            nav ul {
-              display: flex;
-            }
-
-            nav ul > * {
-              flex: auto;
-            }
-            ```
-
-            All items grow to fill space
-            ![Grow to fill space](../../assets/images/html/flex-grow.png)
-
-            ---
-
-            ### One full-width link
-            ```html
-            <nav>
-              <ul>
-                <li><a href="#">Fighter</a></li>
-                <li class="barbarian"><a href="#">Barbarian</a></li>
-                <li><a href="#">Bard</a></li>
-                <li><a href="#">Rogue</a></li>
-              </ul>
-            </nav>
-            ```
-
-            ```css
-            nav ul {
-              display: flex;
-            }
-
-            nav ul > .barbarian {
-              flex: auto;
-            }
-            ```
-            Only `.barbarian` grows to fill space:
-            ![One wide link](../../assets/images/html/wide-barbarian.png)
-
-            ---
-
-            ## Sticky footers
-            A footer that "sticks" to the bottom of a short page:
-
-            ![Example of sticky footer](../../assets/images/html/sticky-footer.png)
-
-            ---
-
-            ### The code
-            [Codepen demo](https://codepen.io/browsertherapy/pen/XWqZpLR)
-            ```html
-            <!-- HTML -->
-            
-            <body>
-              <nav>Navigation here</nav>
-              <header>Site title here</header>
-              <main>Page content here</main>
-              <footer>Sticky footer here</footer>
-            </body>
-            ```
-            ```css
-            /* CSS */
-
-            body {
-              display: flex;
-              flex-direction: column;
-              min-height: 100vh; /* page will scroll if it needs to */
-            }
-            
-            main {
-              flex: auto; /* grows to fill page */
-            }
-            ```
-
-            ---
-
-            ## Key Takeaways
-            - The default for flex items:
-                ```css
-                .item {
-                  flex: 0 auto; /* don't grow */
-                }
-                ```
-            - Use `min-height` to force a container to be taller than short content but allow it to scroll with long content;
-            - Flexboxes can be nested: use one in `column` direction for page layout and another in `row` (default direction) for navigation; 
-            
-            ---
-            
-            ## `flex` Deep Dive
-            The `flex` shorthand property controls:
-            - `flex-grow`: When items grow to fill space
-            - `flex-shrink`: When items shrink
-            - `flex-basis`: Flex version of width (or height)
-
-            See the following resources for more layout patterns using `flex`:
-            - [Flexbox design patterns you can use in your projects](https://www.youtube.com/watch?v=vQAvjof1oe4) by Kevin Powell
-            - Codepen: [Example code of above](https://codepen.io/browsertherapy/pen/oNYNXZO)
 
           </textarea>
         </section>

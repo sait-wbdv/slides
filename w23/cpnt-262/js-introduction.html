@@ -117,7 +117,7 @@
 
             ---
 
-            ### Javascript outside the browser
+            ## Javascript outside the browser
             - [Build a web server](https://www.digitalocean.com/community/tutorials/how-to-create-a-web-server-in-node-js-with-the-http-module)
             - [Building games](https://medium.com/the-node-js-collection/fun-and-games-with-node-js-359cee687173)
             - [Home automation](https://levelup.gitconnected.com/make-your-own-smarthome-server-with-nodejs-86e7aa0f63f4)
@@ -166,13 +166,14 @@
 
             ---
             
-            ### Other ways to add JS to a page
+            ## Other ways to add JS to a page
             You will often see these in examples/documentation online.
             - You will lose marks if you use these methods for assignments in this course (unless you're installing a third-party library or plugin).
 
             ---
 
-            ### Alternative 1: Embedded Javascript
+            ### Alternative 1
+            ## Embedded Javascript
             ```html
             <html>
             <head>
@@ -191,7 +192,8 @@
 
             ---
 
-            ## Alternative 2: Content Delivery Networks (CDN)
+            ### Alternative 2
+            ## Content Delivery Networks
 
             ```html
             <html>
@@ -219,18 +221,13 @@
             ## Naming variables
             - JavaScript is case-sensitive:
                 - `myvar` is not the same as `myVar`
-            - Use camelCase:
+            - Use camelCase for variable names:
                 - Yup: `lastName`
                 - Nope: `last_name`
             - Hyphens (-) are not allowed in variable names
                 - CSS: `border-top`
                 - JS: `borderTop`
-            - Semi-colons are optional but recommended;
-            - Turn on strict mode for better errors:
-                ```js
-                // Put this at the top of your file
-                'use strict';
-                ```
+            - Semi-colons are optional but recommended for this course;
 
             ---
 
@@ -246,151 +243,31 @@
                     const total=99.99*0.05;
                     ```
             - Limit line length to 80 characters
-            - Comment your code!
 
             ---
 
-            ## Javascript Value Types
-            ### 8 Types covered in this course
-            There are more but we don't need to know about them.
-            
-            ---
-
-            ## Primitive Types
-            - **Numbers**: floating point (integers are a lie).
-            - **Strings**: used to represent textual data.
-            - **Booleans**: `true` and `false`.
-            - **Null**: has exactly one value - null.
-            - **Undefined**: a variable that has not been assigned a value has the value undefined.
-                - never manually assign a variable as `undefined`.
-
-            ---
-
-            ### Numbers
+            ## Comment your code!
             ```js
-            const price = 20;
-            const gst = 1;
-            const total = price + gst;
+            // Single line comment
 
-            console.log(total); // 21
+            /*
+            Multi-line
+            comment
+            */
             ```
-            - **Number literal**: a number with no quotes;
-            - There is one type of Number in JS: floating point;
-            - Integers kind of exist but not really:
-                - `46` is actually something like `46.000001`;
-
-            ---
-
-            ### Strings
-            ```js
-            const firstName = 'Tony'; // single quotes
-            const lastName = "Grimes"; // double quotes
-            const fullName = `${firstName} ${lastName}`; // using backticks and template literals
-
-            console.log(fullName); // 'Tony Grimes'
-            ```
-
-            - **String literal**: a string of alphanumeric characters surrounded by single/double quotes or backticks;
-            - **Careful**: Sometimes numbers are actually strings:
-                ```js
-                const fakeNumber = '42';
-                ```
-
-            ---
-
-            ### Booleans
-            ```js
-            const hungry = true;
-            
-            if (hungry) {
-              console.log('Time for lunch!');
-            }
-            ```
-            - **Boolean literal**: Either `true` or `false` with no quotes;
-            - There are only two possible Boolean values;
-
-            ---
-
-            ### Null
-            ```js
-            const foodInStomach = null;
-
-            console.log(foodInStomach); // null
-            ```
-            - **Null literal**: `null` with no quotes;
-            - `null` means "nothing";
-
-            ---
-
-            ### `undefined`
-            - Special type used by Javascript when a variable is non-existent or has no value;
-            - Never explicitly assign a variable to undefined;
-
-            ---
-
-            ## Complex Types
-            - **Arrays**: a list of values, including other arrays.
-            - **Objects**: a collection of name/value pairs (properties).
-            - **Functions**: a block of reusable code that accepts arguments (input data) and may or may not return a value.
-
-            ---
-
-            ### Arrays
-            ```js
-            const colours = ['red', 'green', 'blue'];
-
-            console.log(colours[1]); // 'green'
-            ```
-            - **Array literal**: A comma-separated list of values surrounded by square brackets(`[ ]`);
-            - Values can be any type, including another array;
-            - Array items are accessed by `index` starting at `0`;
-
-            ---
-
-            ### Objects
-            ```js
-            const person = {
-              name: 'Tony Grimes',
-              age: 46,
-              mentalAge: 12,
-              hungry: true,
-              hobbies: ['pinball', 'coding', 'disc golf']
-            }
-            ```
-            - **Object literal**: A comma-separated list of `key`:`value` pairs surrounded by curly braces;
-            - In Javascript, objects are simply a list of `key`/`value` pairs and that's it;
-                - In other object-oriented languages, objects have a different meaning and are more complex;
-
-            ---
-
-            ### Functions
-            ```js
-            // Traditional ES5 syntax
-            const greet = function() {
-              console.log("Hello!");
-            }
-
-            greet(); // 'Hello!'
-
-            // Newer ES6 syntax
-            const farewell = () => {
-              console.log("Goodbye!");
-            }
-
-            farewell(); // 'Goodbye!'
-            ```
-            - Covered in detail later in the course;
-            - Methods are functions that are defined inside objects;
+            - Code commenting will be expected in this course
+            - Comments should be descriptive but concise
 
             ---
 
             ## Further resources
+            - MDN: [Javascript - First Steps](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps)
             - **[Learn JavaScript in 1 Hour](https://www.youtube.com/watch?v=W6NZfCO5SIk)** by Mosh
             - Freecode Camp: 
                 - [Full JavaScript Course for Beginners](https://www.freecodecamp.org/news/full-javascript-course-for-beginners/)
                 - Exercises: [Javascript basics](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/#basic-javascript)
             - Code Academy: [Introduction to Javascript](https://www.codecademy.com/learn/introduction-to-javascript)
-            - Online textbook: [Eloquent Javascript](https://eloquentjavascript.net/) by Marijn Haverbeke
+            - [Traversy Crash Course in Javascript](https://www.youtube.com/watch?v=hdI2bqOjy3c) - video series
 
           </textarea>
         </section>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Numbers and Math</title>
+    <title>Numbers and Math Operators</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/theme/sky.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/highlight/monokai.min.css">
@@ -72,140 +72,154 @@
         <section data-markdown>
           <textarea data-template>
 
-            # Strings
-            ## And Common String Methods
-            ![Example of a string object in the console](../../assets/images/js/string-object.png)
+            # Numbers
+            ## Math Operators and Coercion
 
             ---
 
-            ### The String Object
-            Javascript can convert strings into a `String` object, which includes:
-            - An array of each character in the string;
-            - An `String.length` property representing the number of characters in the string.
-            - A number of string methods that provide useful searching and manipulation functions. These methods will often accept or return the _index_ of a character or substring.
+            ## Types of Numbers
+            <dl>
+              <dt>Integers</dt>
+              <dd>Floating-point numbers without a fraction. They can either be positive or negative, e.g. 10, 400, or -5.</dd>
+              <dt>Floating point numbers</dt>
+              <dd>Floats have decimal points and decimal places, for example 12.5, and 56.7786543.</dd>
+              <dt>Doubles</dt>
+              <dd>a specific type of floating point number that have greater precision than standard floating point numbers.</dd>
+            </dl>
+
+            ---
+
+            ## Javascript Weirdness
+            JS only has one type of number: floating point. Integers are faked.
+
+            ---
+
+            ## Basic Math in Javascript
+            ### Grade-school flash-back
+
+            ---
+
+            ## Arithmetic Operators
+            ```js
+            const num1 = 8;
+            const num2 = 3;
+
+            // Addition
+            const num3 = num1 + num2; // 13
+
+            // Subtraction
+            const num4 = num1 - num2; // 5
+
+            // Multiplication
+            const num5 = num1 * num2; // 24
+
+            // Division
+            const num6 = num1 / num2; // 2.666666
+
+            // Remainder
+            const num7 = num1 % num2; // 2
+
+            // Exponent
+            const num8 = num1 ** num2 // 512
+            ```
+
+            ---
+
+            ## BEDMAS still applies
+            Order of operations:
+            1. Brackets
+            2. Exponents
+            3. Divide/Multiply
+            4. Add/Subtract
+
+            ```js
+            const num1 = 4 + 5 * 8 - 2; // 4 + 40 - 2 -> 42
+            const num2 = (9 + 4) * 2 // 13 * 2 -> 26
+            ```
+
+            ---
+
+            ## Increment/Decrement Operators
+            Increment
+            ```js
+            let num1 = 4;
+            num1++; // 5
+            ```
+            Decrement
+            ```js
+            let num2 = 8;
+            num2--; // 7
+            ```
+
+            ---
+
+            ## Assignment Operators
+            Operators that assign a value to a variable.
+            ```js
+            let x = 3; // x contains the value 3
+            let y = 4; // y contains the value 4
+            x = y; // x now contains the same value y contains, 4
+            ```
+            Special Operators:
+            ```js
+            // Addition assignment
+            x += 4; // x = x + 4
+
+            // Subtraction assignment
+            x -= 3; // x = x - 3
+
+            // Multiplication assignment
+            x *= 3; // x = x * 3
+
+            // Division assignment
+            x /= 5; // x = x / 5;
+
+            ```
+
+            ---
+
+            ## Type Coercion
+            When one data type (i.e. a String) is automatically converted to another (i.e. a Number).
+
+            See: [MDN Glossary](https://developer.mozilla.org/en-US/docs/Glossary/Type_coercion)
+
+            ---
+
+            ## Coercion Example
+
+            ```js
+            const value1 = "5";
+            const value2 = 9;
             
-            ---
-
-            ### Common string operations
-
-            - Find the ['length'](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/length) of a string
-
+            const sum = value1 + value2; // 59
+            ```
+            - Number values with quotes around them are actually strings.
+            - The `+` operator also concatenates strings (i.e. it glues them together):
                 ```js
-                const browserType = 'mozilla';
-                
-                browserType.length; // 7
-
+                const fullName = 'Tony' + ' ' + 'Grimes' // Tony Grimes
                 ```
-            
-            - Retrieving a specific string character
-
-                ```js
-                const firstChar = browserType[0];
-                
-                console.log(firstChar); // 'm'
-
-                ```            
-            - Retrieving the _last_ character
-                ```js
-                const lastChar = browserType[browserType.length - 1];
-                
-                console.log(lastChar); // 'a'
-
-                ```
+            - If `+` sees a number as a string, it will treat it like a string and concatenate it.
 
             ---
 
-            ### Testing for a substring
-            The [`includes()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes) method performs a case-sensitive search to determine whether one string may be found within another string, returning `true` or `false` as appropriate. 
-            
-            ```js
-            const browserType = 'mozilla';
-
-            if (browserType.includes('zilla')) {
-              console.log('Found zilla!');
-            } else {
-              console.log('No zilla here!');
-            }
-
-            ```
-
-            ---
-
-            ### Testing for a starting substring
-            The [`startsWith()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith) method determines whether a string begins with the characters of a specified string, returning true or false as appropriate. 
+            ## Converting Strings to Numbers
+            We can use `parseInt()` and `parseFloat()` to manually convert string numbers to number numbers:
 
             ```js
-            const browserType = 'mozilla';
+            const fakeNum1 = "88";
+            const realNum2 = parseInt(fakeNum1); // 88
 
-            if (browserType.startsWith('moz')) {
-              console.log('Starts with moz!');
-            } else {
-              console.log("Doesn't start with moz!");
-            }
-
+            const fakeNum2 = "3.14";
+            const realNum2 = parseFloat(fakeNum2) // 3.14
             ```
+            We will often need to do this after we pass a number through a form, `prompt()` or the command line.
 
             ---
 
-            ### Testing for an ending substring
-            The [`endsWith()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith) method determines whether a string ends with the characters of a specified string, returning `true` or `false` as appropriate. 
-
-            ```js
-            const browserType = 'mozilla';
-
-            if (browserType.endsWith('zilla')) {
-              console.log('Ends with zilla!');
-            } else {
-              console.log("Doesn't end with moz!");
-            }
-
-            ```
-
-            ---
-
-            ### Finding the location of a substring
-            The [`indexOf()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf) method, given one argument: a substring to search for, searches the entire calling string, and returns the index of the first occurrence of the specified substring.
-
-            ```js
-            const paragraph = 'The quick brown fox jumps over the lazy dog. If the dog barked, was it really lazy?';
-
-            const searchTerm = 'dog';
-            const indexOfFirst = paragraph.indexOf(searchTerm);
-
-            console.log(`The index of the first "${searchTerm}" from the beginning is ${indexOfFirst}`);
-            // expected output: "The index of the first "dog" from the beginning is 40"
-
-            ```
-
-            ---
-
-            ### Updating parts of a string
-            The [`replace()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace) method returns a new string with some or all matches of a `pattern` replaced by a `replacement`.
-
-            ```js
-            const browserType = 'mozilla';
-            const updated = browserType.replace('moz','van');
-
-            console.log(updated);      // "vanilla"
-            console.log(browserType);  // "mozilla"
-
-            ```
-
-            ---
-
-            ### Extracting a substring from a string
-            The [`slice()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice) method extracts a section of a string and returns it as a new string, without modifying the original string. 
-
-            ```js
-            const browserType = 'mozilla';
-            console.log(browserType.slice(1, 4)); // "ozi"
-
-            ```
-
-            ---
-
-            ### More String methods
-            See [the complete list of Javascript string methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#instance_methods)
+            ## Further Learning
+            - [Basic Math in Javascript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Math)
+            - [What is type coercion in Javascript?](https://www.geeksforgeeks.org/what-is-type-coercion-in-javascript/)
+            - [mathjs](https://mathjs.org/): an Extensive math library for Javascript.
 
           </textarea>
         </section>

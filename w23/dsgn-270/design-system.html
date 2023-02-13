@@ -1,188 +1,144 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><!-- TODO: Add Title--></title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/theme/sky.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/highlight/monokai.min.css"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/highlight/highlight.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/markdown/markdown.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.js"></script>
-    <style>
-      :root {
-        --r-heading-text-transform: small-caps;
-      }
-      body .reveal .slides {
-        font-size: 36px;
-        text-align: left;
-      }
 
-      body .reveal .slides h1 {
-        font-size: 3em;
-      }
+<head>
+  <title>Design System</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/theme/sky.min.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/highlight/monokai.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/highlight/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/markdown/markdown.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.js"></script>
+  <style>
+    :root {
+      --r-heading-text-transform: small-caps;
+    }
 
-      body .reveal .slides h2 {
-        font-size: 2em;
-      }
+    body .reveal .slides {
+      font-size: 36px;
+      text-align: left;
+    }
 
-      h1,
-      h2 {
-        text-align: center;
-      }
+    body .reveal .slides h1 {
+      font-size: 3em;
+    }
 
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        font-variant: small-caps;
-        text-align: center;
-      }
-      h1 code,
-      h2 code,
-      h3 code,
-      h4 code,
-      h5 code,
-      h6 code {
-        font-variant: initial;
-      }
+    body .reveal .slides h2 {
+      font-size: 2em;
+    }
 
-      dd {
-        margin-bottom: 2rem;
-      }
-      .reveal pre code {
-        padding: 1rem;
-      }
-      .code {
-        font-family: "Courier New", Courier, monospace;
-        font-size: 2.5rem;
-        white-space: nowrap;
-        color: grey;
-      }
-      .code strong {
-        color: black;
-      }
+    h1,
+    h2 {
+      text-align: center;
+    }
 
-      .code.no-bullet {
-        list-style: none;
-        padding-left: 0;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="reveal">
-      <div class="slides">
-        <section data-markdown>
-          <textarea data-template>
-            # Slideshow Title
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-variant: small-caps;
+      text-align: center;
+    }
 
-            ---
+    h1 code,
+    h2 code,
+    h3 code,
+    h4 code,
+    h5 code,
+    h6 code {
+      font-variant: initial;
+    }
 
-            ### Slide Title
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt, maiores.
-            1.
-            2.
-            3.
+    dd {
+      margin-bottom: 2rem;
+    }
+
+    .reveal pre code {
+      padding: 1rem;
+    }
+
+    .code {
+      font-family: "Courier New", Courier, monospace;
+      font-size: 2.5rem;
+      white-space: nowrap;
+      color: grey;
+    }
+
+    .code strong {
+      color: black;
+    }
+
+    .code.no-bullet {
+      list-style: none;
+      padding-left: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section data-markdown>
+        <textarea data-template>
+            # Design Systems for Devs
+            organize your colors, styles, fonts
 
             ---
 
-            ### Example Searches
-            How would you rate the following search phrases?
-            - Were any words specific to the industry of web development? What are they?
-            - How many words are used?
-            - What is the skill level of the searcher? What problem might they be solving?
-            - How would do you identify high quality results?
+            ## What a Design System Does
+            - sets standards for how things should look
+            - reduces cognitive load when making design decisions
+            - allows quite deployment of new designs via the system's library and preconfigured components
 
             ---
 
-            ## "`How do I build a web site?`"
-            - Could be better.
-            - It's not domain-specific.
-            - It's kind of long.
-            - Skill level: probably beginner
+            ## Scope of Design Systems
+            - Large companies like Google and Apple have comprehensive design Systems
+            - Smaller firms may have less comprehensive or documented systems, or use standards set by other organizations
 
             ---
 
-            ## "`Why isn't my CSS doing anything?`"
-            - One star.
-            - Probably too long.
-            - There's no way for Google to answer the question, but it seems to anyway?
+          ## Design Systems for Developers
 
+          - A design system is very useful for creating mockups and prototypes quickly and consistently.
+          - A design system is a set of rules regarding visual elements such as: 
+            - color, typography, spacing, border radius, and pseudo states.            
 
-            ---
+          ---
 
-            ## "`web development`"
-            - Not very domain-specific
-            - Not qualified; there are a lot reasons why someone would use this phrase 
+          ## Components in a Design System
+          - Design Systems also include components.
+          - These can be accessed from the Figma Community 
+          - Common Components include:
+            - buttons, links and lists
+            - cards, gallery items, header layouts
+            - and more... (see Material design for an idea of this)
 
-            ---
+          ---
 
-            ## "`html crash course`"
-            - Pretty good
-            - Domain specific and qualified
-            - Skill level: beginner
+          ## Design System Setup
 
-            ---
+- [Figma Design System Best Practices](https://www.figma.com/best-practices/components-styles-and-shared-libraries/)
 
-            ## "`css patterns`"
-            - "pattern" is one of Tony's favourite words to append to a phrase for nerdy results.
-
-            ---
-
-            ## "`[your fave browser] devtools`"
-            - The term "devtools" is (mostly) only used by frontend developers (domain-specific)
-
-            ---
-
-            ## "`most underrated css properties`"
-            - The "css" in "css properties" makes "properties" waaaaay more domain-specific
-
-            ---
-
-            ## Identifying high quality results
-            Look for search results that:
-            - Fit your learning style
-            - Solve your problem
-            - Have imagery and high visual hierarchy
-            - Are current
-            - Come from a trusted source
-
-            ---
-
-            ## Convergent vs Divergent Searching
-            - **Convergent**: 
-                - There is probably one answer to your problem
-                - Example: copy/pasting an error
-            - **Divergent**: 
-                - There could be many answers to your problem
-                - You don't have a problem
-                - Example: finding an alternative to Codepen using Google Suggestions
-
-            ---
-
-            ## "`codepen vs`"
-            - Wait for Google to show completion suggestions
-            - What other alternatives can you find using a similar "verses search"?
+1. Pick colors and generate variations
+2. Pick typography and generate variations
+3. Create a couple simple components to generate:
+   - border-radius
+   - effect styles 
 
           </textarea>
-        </section>
-      </div>
+      </section>
     </div>
-    <script>
-      Reveal.initialize({
-        hash: true,
-        plugins: [RevealMarkdown, RevealHighlight],
-      });
-    </script>
-  </body>
+  </div>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      plugins: [RevealMarkdown, RevealHighlight],
+    });
+  </script>
+</body>
+
 </html>

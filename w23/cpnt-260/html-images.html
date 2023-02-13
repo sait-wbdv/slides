@@ -68,16 +68,85 @@
         width: 100%;
         height: 200px;
       }
-    </style>
+      </style>
   </head>
   <body>
     <div class="reveal">
       <div class="slides">
         <section data-markdown>
           <textarea data-template>
+            # HTML Review
+            ## Inline vs Block Elements
+
+            ---
+
+            ## Inline elements
+            Used for word-level styles such as **bold** and _italicize_.
+            - They respect `left` & `right` margins and padding, but **not** `top` & `bottom`;
+                - Use `line-height` to separate content in the up/down direction;
+            - They cannot have a `width` and `height` set;
+            - They allow other elements to sit to their left & right.
+            - See:
+                - [block vs inline elements](https://stackoverflow.com/questions/9189810/css-display-inline-vs-inline-block) 
+                - [Understanding the CSS box model for inline elements](https://hacks.mozilla.org/2015/03/understanding-inline-box-model/)
+        
+            ---
+
+            ## Common inline elements
+            - `strong`: For **bolding** text
+                ```
+                <p>Hello, <strong>World</strong>! How are you doing?</p>
+                ```
+            - `em`: For _italicizing_ (emphasize) text
+                ```
+                <p>Hello, World! How are <em>you</em> doing?</p>
+                ```
+            - `img`: HTML images
+                ```
+                <p> Images <img src="/path/to/image.png"> act like words by default.</p>
+                ```
+                - You will often use `display: block` on images to make them behave more intuitively.
+
+            ---
+
+            ## Block-level elements
+            Are used for paragraph-like content. They:
+            - Respect all sides of `margin` and `padding`;
+            - Can have `width` and `height` set;
+            - Force a line break after the block element;
+            - Are full-width if width is not defined;
+            - Are zero height if there is no content.
+        
+            ---
+
+            ## Common Block-level elements:
+            ```
+            <main>
+              <h1>Hello World!</h1>
+              <p>How are you doing?</p>
+            </main>
+            ```
+            - Headings: `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>`, `<h6>`
+            - Paragraphs: `<p>`
+            - Lists: `<ul>` (bulleted), `<ol>` (numbered)
+            - Layout: `<header>`, `<footer`>, `<main>`, `<nav>`, `<section>`, `<article>` and `<aside>`
+            - Generic: `<div>` is used for layout with no semantic meaning
+
+            ---
+
+            ## `display` Property
+            The display property controls which box model "mode" an HTML element is in. We will be covering the following display modes in this course:
+            - `none`: removes the element from the document
+            - `inline`: word level
+            - `block`: paragraph level
+            - `flex`: one-dimensional layouts (covered later)
+            - `grid`: two-dimensional layouts (covered later)
+            
+            ---
+
             # Raster HTML Images
             ## Formats and HTML Images
-
+            
             ---
 
             ## Terminology
@@ -127,7 +196,6 @@
             Dithering is a technique used when there are too few colours in the image to smooth out gradients.
 
             ![Example of a low frequency image](../../assets/images/images/dithering.png)
-
 
             ---
 
@@ -191,9 +259,8 @@
                 - See: Tony's [blendr app](https://acidtone.github.io/blendr/)
             - **[`clip-path`](https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path)**: For cutting images into shapes. 
                 - See: 
-                   - [Clipping and Masking in CSS](https://css-tricks.com/clipping-masking-css/)
-                   - [Codepen example](https://codepen.io/browsertherapy/pen/yLeobxq)
-            
+                    - [Clipping and Masking in CSS](https://css-tricks.com/clipping-masking-css/)
+                    - [Codepen example](https://codepen.io/browsertherapy/pen/yLeobxq)
 
           </textarea>
         </section>

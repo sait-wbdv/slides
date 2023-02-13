@@ -159,11 +159,147 @@
                 const hobbies = ['pinball', 'coding', 'disc golf'];
                 hobbies[1] = 'programming'; // no error
                 ```
+
+            ---
+
+            ## Javascript Value Types
+            ### 8 Types covered in this course
+            There are more but we don't need to know about them.
             
+            ---
+
+            ## Primitive Types
+            - **Numbers**: floating point (integers are a lie).
+            - **Strings**: used to represent textual data.
+            - **Booleans**: `true` and `false`.
+            - **Null**: has exactly one value - null.
+            - **Undefined**: a variable that has not been assigned a value has the value undefined.
+                - never manually assign a variable as `undefined`.
+
+            ---
+
+            ### Numbers
+            ```js
+            const price = 20;
+            const gst = 1;
+            const total = price + gst;
+
+            console.log(total); // 21
+            ```
+            - **Number literal**: a number with no quotes;
+            - There is one type of Number in JS: floating point;
+            - Integers kind of exist but not really:
+                - `46` is actually something like `46.000001`;
+
+            ---
+
+            ### Strings
+            ```js
+            const firstName = 'Tony'; // single quotes
+            const lastName = "Grimes"; // double quotes
+            const fullName = `${firstName} ${lastName}`; // using backticks and template literals
+
+            console.log(fullName); // 'Tony Grimes'
+            ```
+
+            - **String literal**: a string of alphanumeric characters surrounded by single/double quotes or backticks;
+            - **Careful**: Sometimes numbers are actually strings:
+                ```js
+                const fakeNumber = '42';
+                ```
+
+            ---
+
+            ### Booleans
+            ```js
+            const hungry = true;
+            
+            if (hungry) {
+              console.log('Time for lunch!');
+            }
+            ```
+            - **Boolean literal**: Either `true` or `false` with no quotes;
+            - There are only two possible Boolean values;
+
+            ---
+
+            ### Null
+            ```js
+            const foodInStomach = null;
+
+            console.log(foodInStomach); // null
+            ```
+            - **Null literal**: `null` with no quotes;
+            - `null` means "nothing";
+
+            ---
+
+            ### `undefined`
+            - Special type used by Javascript when a variable is non-existent or has no value;
+            - Never explicitly assign a variable to undefined;
+
+            ---
+
+            ## Complex Types
+            - **Arrays**: a list of values, including other arrays.
+            - **Objects**: a collection of name/value pairs (properties).
+            - **Functions**: a block of reusable code that accepts arguments (input data) and may or may not return a value.
+
+            ---
+
+            ### Arrays
+            ```js
+            const colours = ['red', 'green', 'blue'];
+
+            console.log(colours[1]); // 'green'
+            ```
+            - **Array literal**: A comma-separated list of values surrounded by square brackets(`[ ]`);
+            - Values can be any type, including another array;
+            - Array items are accessed by `index` starting at `0`;
+
+            ---
+
+            ### Objects
+            ```js
+            const person = {
+              name: 'Tony Grimes',
+              age: 46,
+              mentalAge: 12,
+              hungry: true,
+              hobbies: ['pinball', 'coding', 'disc golf']
+            }
+            ```
+            - **Object literal**: A comma-separated list of `key`:`value` pairs surrounded by curly braces;
+            - In Javascript, objects are simply a list of `key`/`value` pairs and that's it;
+                - In other object-oriented languages, objects have a different meaning and are more complex;
+
+            ---
+
+            ### Functions
+            ```js
+            // Traditional ES5 syntax
+            const greet = function() {
+              console.log("Hello!");
+            }
+
+            greet(); // 'Hello!'
+
+            // Newer ES6 syntax
+            const farewell = () => {
+              console.log("Goodbye!");
+            }
+
+            farewell(); // 'Goodbye!'
+            ```
+            - Covered in detail later in the course;
+            - Methods are functions that are defined inside objects;
+
+
             ---
 
             ## Further resources
             - [Storing the information you need — Variables](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Variables)
+            - [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
             - Video: [Differences Between Var, Let, and Const](https://www.youtube.com/watch?v=9WIJQDvt4Us) by Web Dev Simplified
 
           </textarea>

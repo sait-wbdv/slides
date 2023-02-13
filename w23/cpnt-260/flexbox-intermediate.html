@@ -140,7 +140,122 @@
               ```
             - It makes the flex item inflexible and sets the flex basis to the supplied value, resulting in an item of that size instead of the size of its content.
             - This is the "Flex" way of assigning `width` in the row direction or `height` in the column direction (and is recommended).
+
+            ---
+
+
+            ## Filling extra space
+            The [`flex` shorthand property](https://css-tricks.com/almanac/properties/f/flex/) can be used to make items expand to fill extra space:
+
+            ```css
+            .container {
+              display: flex;
+            }
+            .item {
+              flex: auto; /* default: 0 auto */
+            }
+            ```
             
+            ---
+
+            ### Full-width horizontal navigation           
+            ```css
+            nav ul {
+              display: flex;
+            }
+
+            nav ul > * {
+              flex: auto;
+            }
+            ```
+
+            All items grow to fill space
+            ![Grow to fill space](../../assets/images/html/flex-grow.png)
+
+            ---
+
+            ### One full-width link
+            ```html
+            <nav>
+              <ul>
+                <li><a href="#">Fighter</a></li>
+                <li class="barbarian"><a href="#">Barbarian</a></li>
+                <li><a href="#">Bard</a></li>
+                <li><a href="#">Rogue</a></li>
+              </ul>
+            </nav>
+            ```
+
+            ```css
+            nav ul {
+              display: flex;
+            }
+
+            nav ul > .barbarian {
+              flex: auto;
+            }
+            ```
+            Only `.barbarian` grows to fill space:
+            ![One wide link](../../assets/images/html/wide-barbarian.png)
+
+            ---
+
+            ## Sticky footers
+            A footer that "sticks" to the bottom of a short page:
+
+            ![Example of sticky footer](../../assets/images/html/sticky-footer.png)
+
+            ---
+
+            ### The code
+            [Codepen demo](https://codepen.io/browsertherapy/pen/XWqZpLR)
+            ```html
+            <!-- HTML -->
+            
+            <body>
+              <nav>Navigation here</nav>
+              <header>Site title here</header>
+              <main>Page content here</main>
+              <footer>Sticky footer here</footer>
+            </body>
+            ```
+            ```css
+            /* CSS */
+
+            body {
+              display: flex;
+              flex-direction: column;
+              min-height: 100vh; /* page will scroll if it needs to */
+            }
+            
+            main {
+              flex: auto; /* grows to fill page */
+            }
+            ```
+
+            ---
+
+            ## Key Takeaways
+            - The default for flex items:
+                ```css
+                .item {
+                  flex: 0 auto; /* don't grow */
+                }
+                ```
+            - Use `min-height` to force a container to be taller than short content but allow it to scroll with long content;
+            - Flexboxes can be nested: use one in `column` direction for page layout and another in `row` (default direction) for navigation; 
+           
+            ---
+            
+            ## `flex` Deep Dive
+            The `flex` shorthand property controls:
+            - `flex-grow`: When items grow to fill space
+            - `flex-shrink`: When items shrink
+            - `flex-basis`: Flex version of width (or height)
+
+            See the following resources for more layout patterns using `flex`:
+            - [Flexbox design patterns you can use in your projects](https://www.youtube.com/watch?v=vQAvjof1oe4) by Kevin Powell
+            - Codepen: [Example code of above](https://codepen.io/browsertherapy/pen/oNYNXZO)
           </textarea>
         </section>
       </div>

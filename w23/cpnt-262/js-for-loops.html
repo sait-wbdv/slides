@@ -118,6 +118,14 @@
 
             ---
 
+            ### `for` Loop Flowchart
+
+            ![Flowchart of a for loop](../../assets/images/js/for-loop-flowchart.png)
+
+            Source: [JavaScript for loop (with examples)](https://www.programiz.com/javascript/for-loop)
+
+            ---
+
             ### The `for` loop process
             1. The `initializer` expression executes and creates one or more loop counters. The syntax allows an expression of any degree of complexity but is usually `i = 0` or `i = 1`. 
                 - it's convention to name your iterator `i`.
@@ -145,6 +153,49 @@
             - Variables declared inside the `for` loop are not available outside the loop.
             - Use `let` when initializing `i`. `const` won't work if `i` is incremented or overwritten.
             - Be careful when defining your `condition`. It's easy to be "one off" when choosing comparison operators such as `<` and `<=`.
+
+            ---
+
+            ## `break` and `continue`
+            ### Stopping and skipping
+            
+            ---
+
+            ### `break`
+            The `break` statement "jumps out" of a loop.
+            
+            ```js
+            for (let i = 1; i <= 10; i++) {
+
+              if (i === 4) { 
+                break; 
+              }
+              
+              console.log(i);
+
+            }
+
+            // Output: 1, 2, 3
+            ```
+
+            ---
+
+            ### `continue`
+            The continue statement skips one iteration in the loop.
+
+            ```js
+            for (let i = 1; i <= 10; i++) {
+
+              if (i === 4) { 
+                continue; 
+              }
+              
+              console.log(i);
+
+            }
+            
+            // Output: 1, 2, 3, 5, 6, 7, 8, 9, 10
+            ```
 
             ---
 

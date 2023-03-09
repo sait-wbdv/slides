@@ -106,22 +106,17 @@
             ```js
             const animals = ['Puppy', 'Bear', 'Moose', 'Tiger', 'Husky'];
             ```
-            - The _first_ index of an array is `0`.
+            The _first_ index of an array is `0`.
   
-                ```js
-                const firstAnimal = animals[0]; // Puppy
-                ```
+            ```js
+            const firstAnimal = animals[0]; // Puppy
+            ```
   
-            - The _last_ index is `Array.length - 1`.
+            The _last_ index is `Array.length - 1`.
   
-                ```js
-                const lastAnimal = animals[animals.length - 1]; // Husky
-                ```
-            - Add an item with `array.length`.
-  
-                ```js
-                animals[animals.length] = 'Wolf'; // New item
-                ```
+            ```js
+            const lastAnimal = animals[animals.length - 1]; // Husky
+            ```
             
             ---
   
@@ -138,38 +133,75 @@
   
             ---
   
-            ## Common array methods
+            ## Common array operations
             
             ---
   
-            ### Finding and removing items
+            ### Finding items
   
+            ```js
+            const animals = ['Puppy', 'Bear', 'Tiger', 'Husky', 'Puppy'];  
+            ```
+  
+            Find the _first_ index of an item with `array.indexOf()`
+            ```js
+            let pos = animals.indexOf('Puppy'); // 0
+            ```
+            
+            Find the _last_ item with `array.lastIndexOf()`
+            ```js
+            console.log(animals.lastIndexOf('Puppy'));
+            // Expected output: 4
+            ```
+
+            ---
+
+            ### Adding items
+            Add an item with `array.length`.
+
+            ```js
+            animals[animals.length] = 'Wolf'; // New item
+            ```
+
+            Add an item with `array.push()`:
             ```js
             const animals = ['Puppy', 'Bear', 'Moose', 'Tiger', 'Husky'];
   
-            console.log(animals.length); // 5
-  
+            animals.push('Kitty');
+            // ['Puppy', 'Moose', 'Tiger', 'Husky', 'Kitty']
+
             ```
-  
-            - Find the index of an item
-                ```js
-                let pos = animals.indexOf('Bear'); // 1
-                ```
-  
-            - Remove an item by index position
 
-                ```js
-                let removedItem = animals.splice(pos, 1); 
-                
-                console.log(removedItem);
-                // 'Bear'
-
-                console.log(animals)
-                // ['Puppy', 'Moose', 'Tiger', 'Husky']
-                ```
-            
             ---
-  
+
+            ### Removing items
+            Remove the last item with `array.pop()`:
+
+            ```js
+            const animals = ['Puppy', 'Bear', 'Moose', 'Tiger', 'Husky'];
+            let removedItem = animals.pop();
+            
+            console.log(removedItem);
+            // 'Husky'
+
+            console.log(animals)
+            // ['Puppy', 'Bear', 'Moose', 'Tiger']
+            ```
+
+            Remove an item by index with `array.splice()`
+
+            ```js
+            let removedItem = animals.splice(pos, 1); 
+            
+            console.log(removedItem);
+            // 'Bear'
+
+            console.log(animals)
+            // ['Puppy', 'Moose', 'Tiger', 'Husky']
+            ```
+
+            ---
+
             ### Searching Arrays
             The `includes()` method determines whether an array includes a certain value among its entries, returning true or false as appropriate.
             ```js

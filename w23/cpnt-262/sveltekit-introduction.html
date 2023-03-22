@@ -178,6 +178,28 @@
 
             ---
 
+            ## Dynamic Routes
+            We can create routes that represent multiple pages with **route parameters**. ([source](https://joyofcode.xyz/sveltekit-routing))
+
+            ![Route parameters](../../assets/images/svelte/route-parameters.png)
+
+            ---
+
+            ## `$page`
+            `$page` is a special variable SvelteKit provides that gives you information about the current route, including route parameters.
+            ```html
+            <script>
+              import { page } from '$app/stores';
+
+              console.log($page.params)
+
+            </script>
+            ```
+            `$page` is a Svelte store, which means you need to access it with a `$`.
+            
+
+            ---
+
             ## Tips and Tricks
 
             ---

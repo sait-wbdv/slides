@@ -76,20 +76,6 @@
 
             ---
 
-            ## Terminology
-            <dl>
-              <dt>Single threaded</dt>
-              <dd>One statement is executed at a time. Javascript is single threaded. Many other languages are not.</dd>
-              <dt>Synchronous</dt>
-              <dd>One at a time.</dd>
-              <dt>Asynchronous</dt>
-              <dd>More than one at a time.</dd>
-              <dt>Promise</dt>
-              <dd>An ES6 feature that allows for asynchronous functions.</dd>
-            </dl>
-
-            ---
-
             ## Loading Data in SvelteKit
             A **`+page.svelte`** file can have sibling pages that can load data for your page.
             <dl>
@@ -152,6 +138,19 @@
             ---
 
             ## Fetching async data
+            <dl>
+              <dt>Single threaded</dt>
+              <dd>One statement is executed at a time. Javascript is single threaded. Many other languages are not.</dd>
+              <dt>Synchronous</dt>
+              <dd>One at a time.</dd>
+              <dt>Asynchronous</dt>
+              <dd>More than one at a time.</dd>
+              <dt>Promise</dt>
+              <dd>An ES6 feature that allows for asynchronous functions.</dd>
+            </dl>
+
+            ---
+
             The `load` function can also access the `fetch` function but it must be used asynchronously with `async`/`await`:
             
             ```js

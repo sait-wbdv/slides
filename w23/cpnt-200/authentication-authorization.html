@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Authentication and Authorization</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/theme/sky.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/highlight/monokai.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/highlight/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/markdown/markdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.js"></script>
+    <style>
+      :root {
+        --r-heading-text-transform: small-caps;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        font-variant: small-caps;
+      }
+      
+      dd {
+        margin-bottom: 2rem;
+      }
+      .reveal pre code {
+        padding: 1rem;
+      }
+      .code {
+        font-family:'Courier New', Courier, monospace;
+        font-size: 2.5rem;
+        white-space: nowrap;
+        color: grey;
+      }
+      .code strong {
+        color: black;
+      }
+
+      .code.no-bullet {
+        list-style: none;
+        padding-left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown>
+          <textarea data-template>
+            ## API Security
+            ### Authentication vs Authorization 
+
+            ---
+
+            ## Terminology 
+            <dl>
+              <dt>Authentication (tokens)</dt>
+              <dd>The process of verifying who a user is.</dd>
+              <dt>Authorization (access tokens, keys)</dt>
+              <dd>The process of verifying what an application has access to.</dd>
+            </dl>
+
+            ---
+
+            ### Real-world example
+            When you go through security in an airport:
+            1. You show your ID to <strong>Authenticate</strong> your identity. 
+            2. Then, when you arrive at the gate, you present your boarding pass to the flight attendant, so they can <strong>Authorize</strong> you to board your flight.
+
+            Source: <a href="https://auth0.com/docs/get-started/authentication-and-authorization" target="_blank">Authentication vs. Authorization</a> on Auth0
+
+            ---
+
+            ### API Keys
+            - Is an **Authorization** scheme that does _not_ **Authenticate** the user.
+            - Identify the application making the request and can be revoked.
+            - Are considered public and are inherently insecure because they are often shown in the URL as a Query Parameter (and therefore can't be encrypted).
+
+            <p class="code">example.com/api/invoices?<strong>token=sdafnDuTD83</strong></p>
+
+
+            ---
+
+            ### The general process for creating a key
+            1. Login to the service portal.
+            2. Find/generate your API key. This is usually under Settings or similar.
+            3. Copy your API key into your application.
+            4. Follow the instructions provided by the service to test your API key.
+
+            ---
+            ## Extra Reading
+            - <a href="https://auth0.com/docs/get-started/authentication-and-authorization" target="_blank">Authentication vs. Authorization</a> (Auth0)
+            - <a href="https://cloud.google.com/endpoints/docs/openapi/when-why-api-key" target="_blank">Why and when to use API keys</a> (Google Cloud)
+            - <a href="https://zapier.com/engineering/apikey-oauth-jwt/" target="_blank">API Keys vs OAuth Tokens vs JSON Web Tokens</a> (Zapier)
+
+            </textarea>
+        </section>
+      </div>
+    </div>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        plugins: [ RevealMarkdown, RevealHighlight ]
+      });
+    </script>
+  </body>
+</html>

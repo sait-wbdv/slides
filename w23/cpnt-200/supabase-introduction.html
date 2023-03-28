@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Supabase Getting Started</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/theme/sky.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/highlight/monokai.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/base16/atelier-forest.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/highlight/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/markdown/markdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.js"></script>
+    <style>
+      :root {
+        --r-heading-text-transform: small-caps;
+      }
+      body .reveal .slides {
+        font-size: 30px;
+        text-align: left;
+      }
+
+      body .reveal .slides h1 {
+        font-size: 3em;
+      }
+
+      body .reveal .slides h2 {
+        font-size: 2.5em;
+      }
+
+      h1, h2 {
+        text-align: center;
+      }
+      
+      h1, h2, h3, h4, h5, h6 {
+        font-variant: small-caps;
+        text-align: center;
+      }
+      h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
+        font-variant: initial;
+      }
+      
+      dd {
+        margin-bottom: 2rem;
+      }
+
+      .reveal p > img {
+        display: block;
+        margin: auto;
+      }
+
+      .reveal pre code {
+        padding: 1rem;
+      }
+      .code {
+        font-family:'Courier New', Courier, monospace;
+        font-size: 2.5rem;
+        white-space: nowrap;
+        color: grey;
+      }
+      .code strong {
+        color: black;
+      }
+
+      .code.no-bullet {
+        list-style: none;
+        padding-left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown>
+          <textarea data-template>
+            # Supabase with SvelteKit
+            ## Getting Started
+
+            ---
+
+            ## First-time Setup
+            1. [Create Supabase account](https://app.supabase.com/sign-up)
+                - Supabase will create your database for you.
+                - Use a strong password for your database password and store it in a safe place. Don't lose it!
+            2. Add your Instructor as a Team Administrator (click on Org at the top of the page)
+                ![Teams page](../../assets/images/db/supabase-team.png)
+
+
+            ---
+
+            ### Tutorial
+            ## [Use Supabase with SvelteKit](https://supabase.com/docs/guides/getting-started/quickstarts/sveltekit)
+
+            Complete this tutorial to connect your first SvelteKit page to your database. The above steps have been duplicated here, with some changes for your `.env` file.
+            
+            ---
+
+            ### Step 1: Set up a Supabase project with sample data
+            1. [Create a new project](https://app.supabase.com/) in the Supabase Dashboard.
+
+            2. After your project is ready, create a table in your Supabase database using the [SQL Editor](https://app.supabase.com/project/_/sql) in the Dashboard. Use the following SQL statement to create a countries table with some sample data.
+
+            ```sql
+            -- Create the table
+            CREATE TABLE countries (
+            id SERIAL PRIMARY KEY,
+            name VARCHAR(255) NOT NULL
+            );
+            -- Insert some sample data into the table
+            INSERT INTO countries (name) VALUES ('United States');
+            INSERT INTO countries (name) VALUES ('Canada');
+            INSERT INTO countries (name) VALUES ('Mexico');
+            ```
+            ---
+
+            ### Step2: Create a SvelteKit app
+
+            Create a SvelteKit app using the `npm create` command or you can use a project you've already set up.
+
+            ```bash
+            $ npm create svelte@latest hello-supabase
+            ```
+
+            ---
+
+            ### Step 3: Install the Supabase client library
+            The fastest way to get started is to use the `supabase-js` client library which provides a convenient interface for working with Supabase from a SvelteKit app.
+
+            Navigate to the SvelteKit app and install `supabase-js`.
+
+            ```bash
+            $ npm install @supabase/supabase-js
+            ```
+
+            ---
+
+            ### Step 4a: Add public API (anon) key to your `.env`
+            Create an `.env` file (if you don't already have one) in the root of your project and add your public API (anon) key as `SUPABASE_KEY`.
+              
+            ```
+            SUPABASE_KEY=eyJhbGciOiJIUnR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXB3R1ZHVtZmhya3V1bWdmbnNtIiwicm9sZSI6ImFub24iLCJpYMzksImV4cCI6MTk5NTQzNzkzOX0.JUm1zX5zp1ApFCoEviuZYJooJhfo
+            ```
+
+            ---
+
+            ### Step 4b: Create the Supabase client
+            Create a `/src/lib` directory in your SvelteKit app, create a file called `supabaseClient.js` and add the following code to initialize the Supabase client with your project URL and public API (anon) key.
+
+            ```js
+            import { createClient } from '@supabase/supabase-js';
+            import { SUPABASE_KEY } from '$env/static/private';
+
+            export const supabase = createClient('https://<project>.supabase.co', 'SUPABASE_KEY');
+          
+            ```
+
+            ---
+
+            ### Step 5a: Create `+page.server.js`
+            Use `load` method to fetch the data server-side and display the query results as a simple list.
+
+            Create `+page.server.js` file in the `routes` directory with the following code.
+
+            ```js
+            import { supabase } from "$lib/supabaseClient";
+
+            export async function load() {
+              const { data } = await supabase.from("countries").select();
+              return {
+                countries: data ?? [],
+              };
+            }
+          
+            ```
+
+            ---
+
+            ### Step 5b: Create `+page.svelte` page
+            Create or modify a `+page.svelte` file in the `routes` directory with the following code.
+
+            ```html
+            <script>
+              export let data;
+              let { countries } = data;
+            </script>
+          
+            <ul>
+              {#each countries as country}
+                <li>{country.name}</li>
+              {/each}
+            </ul>
+            ```
+
+            ---
+
+            ### Step 6: Start the app
+            Replace the existing content in your +page.svelte file in the routes directory with the following code.
+
+            ```bash
+            $ npm run dev
+            ```
+
+            ---
+
+            ## Further Learning
+            **Supabase Auth Deep Dive**
+            - [Part One: JWTs](https://supabase.com/docs/learn/auth-deep-dive/auth-deep-dive-jwts)
+            - [Part Two: Row Level Security](https://supabase.com/docs/learn/auth-deep-dive/auth-row-level-security)
+            - [Part Three: Policies](https://supabase.com/docs/learn/auth-deep-dive/auth-policies)
+            - [Part Four: GoTrue](https://supabase.com/docs/learn/auth-deep-dive/auth-gotrue)
+            - [Part Five: Google Oauth](https://supabase.com/docs/learn/auth-deep-dive/auth-google-oauth)
+            **Intermediate/Advanced Tutorials**
+            - [Build a User Management App with SvelteKit](https://supabase.com/docs/guides/getting-started/tutorials/with-sveltekit)
+                - This tutorial uses Typescript
+            - [Supabase OAuth with SvelteKit (Discord, Google, GitHub)](https://www.youtube.com/watch?v=KfezTtt2GsA)
+
+          </textarea>
+        </section>
+      </div>
+    </div>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        plugins: [ RevealMarkdown, RevealHighlight ]
+      });
+    </script>
+  </body>
+</html>
